@@ -1,0 +1,19 @@
+{
+    "private": true,
+    "workspaces": [
+        "frontend",
+        "backend"
+    ],
+    "name": "reimagined-couscous",
+    "version": "1.0.0",
+    "description": "test maven java",
+    "main": "index.js",
+    "scripts": {
+        "dev": "npm run dev --workspace=frontend & npm run dev --workspace=backend",
+        "build": "npm run build --workspace=frontend & npm run build --workspace=backend",
+        "prod": "npm run prod --workspace=frontend & npm run dev --workspace=backend"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}
