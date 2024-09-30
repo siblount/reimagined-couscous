@@ -1,7 +1,8 @@
 // frontend/src/app/services/postService.ts
 import axios from 'axios';
+console.warn("Got env: ", process.env);
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 interface PostData {
   title: string;
@@ -14,9 +15,32 @@ interface PostData {
   eventDate?: Date;
 }
 
-export const getPosts = async () => {
-  const response = await axios.get(`${API_URL}/posts`);
-  return response.data;
+export const getPosts = async (limit?: number, searchQuery?: string) => {
+  let url = `${API_URL}/posts/query`;
+  const params = new URLSearchParams();
+
+  if (limit) {
+    params.append('limit', limit.toString());
+  }
+
+  if (searchQuery) {
+    params.append('search', searchQuery);
+  }
+
+  if (params.toString()) {
+    url += `?${params.toString()}`;
+  }
+
+  const response = await axios.get(url);
+  const posts = response.data;
+
+  // Shuffle the posts array
+  for (let i = posts.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [posts[i], posts[j]] = [posts[j], posts[i]];
+  }
+
+  return posts;
 };
 
 export const getPostById = async (id: string) => {

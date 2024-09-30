@@ -1,21 +1,31 @@
 services:
-  frontend:
-    build: ./frontend
-    ports:
-      - "3000:3000"
-    environment:
-      - NEXT_PUBLIC_API_URL=http://backend:5000
-    depends_on:
-      - backend
-
   backend:
-    build: ./backend
+    build: 
+      context: .
+      dockerfile: backend/Dockerfile
     ports:
       - "5000:5000"
     environment:
       - MONGODB_URI=mongodb://mongodb:27017/giveapp
+    volumes:
+      - ./shared:/app/shared
     depends_on:
       - mongodb
+
+  frontend:
+    build: 
+      context: .
+      dockerfile: frontend/Dockerfile
+      args:
+        - NEXT_PUBLIC_API_URL=http://localhost:5000/api
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:5000/api
+    volumes:
+      - ./shared:/app/shared
+    depends_on:
+      - backend
 
   mongodb:
     image: mongo:latest

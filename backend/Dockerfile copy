@@ -3,23 +3,19 @@ FROM node:20
 
 WORKDIR /app
 
-# Copy root package.json and package-lock.json
+# Copy package.json and package-lock.json
 COPY package*.json ./
-
-# Copy backend package.json
-COPY backend/package*.json ./backend/
 
 # Install dependencies
 RUN npm install
 
 # Copy backend source code
-COPY backend ./backend
+COPY . .
 
-# Copy shared folder
-COPY shared ./shared
+# Copy shared folder to the correct location
+COPY ../shared ./shared
 
 # Build the application
-WORKDIR /app/backend
 RUN npm run build
 
 EXPOSE 5000

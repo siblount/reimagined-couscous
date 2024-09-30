@@ -3,6 +3,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { getPosts } from '../services/postService';
+import HomeRequestFlashcard from './HomeRequestFlashcard';
+import ExploreRequestFlashcard from './ExploreRequestFlashcard';
 
 interface Post {
   _id: string;
@@ -10,43 +12,55 @@ interface Post {
   description: string;
   organizationId: string;
   createdAt: string;
+  tags: string[];
+  eventDate?: string;
+  volunteersNeeded?: number;
+  images?: string[]; // Add this line
 }
 
-const PostList: React.FC = () => {
+interface PostListProps {
+  cardType: 'home' | 'explore';
+  limit?: number;
+  searchQuery?: string;
+}
+
+const PostList: React.FC<PostListProps> = ({ cardType, limit, searchQuery }) => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const fetchedPosts = await getPosts();
+        const fetchedPosts = await getPosts(limit, searchQuery);
         setPosts(fetchedPosts);
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching posts:', error);
+        console.error('Error fetching posts from PostList:', error);
         setLoading(false);
       }
     };
 
     fetchPosts();
-  }, []);
+  }, [limit, searchQuery]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="text-center">Loading...</div>;
+  }
+
+  if (cardType === 'home') {
+    return (
+      <div className="flex overflow-x-auto space-x-4 pb-4">
+        {posts.map((post) => (
+          <HomeRequestFlashcard key={post._id} post={post} />
+        ))}
+      </div>
+    );
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {posts.map((post) => (
-        <div key={post._id} className="bg-white rounded-lg shadow-md overflow-hidden">
-          <div className="p-4">
-            <h3 className="text-lg font-semibold text-orange-800">{post.title}</h3>
-            <p className="text-orange-600">{post.description}</p>
-            <p className="text-sm text-gray-500 mt-2">
-              Created at: {new Date(post.createdAt).toLocaleDateString()}
-            </p>
-          </div>
-        </div>
+        <ExploreRequestFlashcard key={post._id} post={post} />
       ))}
     </div>
   );

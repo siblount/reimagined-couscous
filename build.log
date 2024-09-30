@@ -1,0 +1,279 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile:
+#1 transferring dockerfile: 191B done
+#1 DONE 0.8s
+
+#2 [internal] load metadata for docker.io/library/node:20
+#2 ...
+
+#3 [auth] library/node:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:20
+#2 DONE 1.6s
+
+#4 [internal] load .dockerignore
+#4 transferring context:
+#4 transferring context: 66B done
+#4 DONE 0.5s
+
+#5 [1/6] FROM docker.io/library/node:20@sha256:db5dd2f30cb82a8bdbd16acd4a8f3f2789f5b24f6ce43f98aa041be848c82e45
+#5 DONE 0.0s
+
+#6 [2/6] WORKDIR /app
+#6 CACHED
+
+#7 [internal] load build context
+#7 transferring context: 10.06kB done
+#7 DONE 0.6s
+
+#8 [3/6] COPY package*.json ./
+#8 DONE 1.9s
+
+#9 [4/6] RUN npm install
+#9 4.261 npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+#9 4.655 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+#9 5.537 npm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead
+#9 5.571 npm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead
+#9 5.649 npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+#9 13.75 
+#9 13.75 added 379 packages, and audited 380 packages in 12s
+#9 13.75 
+#9 13.75 142 packages are looking for funding
+#9 13.75   run `npm fund` for details
+#9 13.75 
+#9 13.75 found 0 vulnerabilities
+#9 13.76 npm notice
+#9 13.76 npm notice New patch version of npm available! 10.8.2 -> 10.8.3
+#9 13.76 npm notice Changelog: https://github.com/npm/cli/releases/tag/v10.8.3
+#9 13.76 npm notice To update run: npm install -g npm@10.8.3
+#9 13.76 npm notice
+#9 DONE 21.0s
+
+#10 [5/6] COPY . .
+#10 DONE 4.1s
+
+#11 [6/6] RUN npm run build
+#11 1.129 
+#11 1.129 > frontend@0.1.0 build
+#11 1.129 > next build
+#11 1.129 
+#11 1.723 The environment {
+#11 1.723   npm_config_user_agent: 'npm/10.8.2 node/v20.17.0 linux x64 workspaces/false',
+#11 1.723   NODE_VERSION: '20.17.0',
+#11 1.723   YARN_VERSION: '1.22.22',
+#11 1.723   npm_node_execpath: '/usr/local/bin/node',
+#11 1.723   HOME: '/root',
+#11 1.723   npm_package_json: '/app/package.json',
+#11 1.723   npm_config_userconfig: '/root/.npmrc',
+#11 1.723   npm_config_local_prefix: '/app',
+#11 1.723   COLOR: '0',
+#11 1.723   npm_config_prefix: '/usr/local',
+#11 1.723   npm_config_npm_version: '10.8.2',
+#11 1.723   npm_config_cache: '/root/.npm',
+#11 1.723   npm_config_node_gyp: '/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js',
+#11 1.723   PATH: '/app/node_modules/.bin:/node_modules/.bin:/usr/local/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+#11 1.723   NODE: '/usr/local/bin/node',
+#11 1.723   npm_package_name: 'frontend',
+#11 1.723   npm_lifecycle_script: 'next build',
+#11 1.723   npm_package_version: '0.1.0',
+#11 1.723   npm_lifecycle_event: 'build',
+#11 1.723   npm_config_globalconfig: '/usr/local/etc/npmrc',
+#11 1.723   npm_config_init_module: '/root/.npm-init.js',
+#11 1.723   PWD: '/app',
+#11 1.723   npm_execpath: '/usr/local/lib/node_modules/npm/bin/npm-cli.js',
+#11 1.723   npm_config_global_prefix: '/usr/local',
+#11 1.723   npm_command: 'run-script',
+#11 1.723   INIT_CWD: '/app',
+#11 1.723   EDITOR: 'vi',
+#11 1.723   NODE_ENV: 'production',
+#11 1.723   NEXT_RUNTIME: 'nodejs',
+#11 1.723   npm_config_noproxy: ''
+#11 1.723 }
+#11 1.996 Attention: Next.js now collects completely anonymous telemetry regarding usage.
+#11 1.996 This information is used to shape Next.js' roadmap and prioritize features.
+#11 1.996 You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+#11 1.996 https://nextjs.org/telemetry
+#11 1.997 
+#11 2.072   ▲ Next.js 14.2.13
+#11 2.072 
+#11 2.144    Creating an optimized production build ...
+#11 2.674 The environment {
+#11 2.674   npm_config_user_agent: 'npm/10.8.2 node/v20.17.0 linux x64 workspaces/false',
+#11 2.674   NODE_VERSION: '20.17.0',
+#11 2.674   YARN_VERSION: '1.22.22',
+#11 2.674   npm_node_execpath: '/usr/local/bin/node',
+#11 2.674   HOME: '/root',
+#11 2.674   npm_package_json: '/app/package.json',
+#11 2.674   npm_config_userconfig: '/root/.npmrc',
+#11 2.674   npm_config_local_prefix: '/app',
+#11 2.674   COLOR: '0',
+#11 2.674   npm_config_prefix: '/usr/local',
+#11 2.674   npm_config_npm_version: '10.8.2',
+#11 2.674   npm_config_cache: '/root/.npm',
+#11 2.674   npm_config_node_gyp: '/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js',
+#11 2.674   PATH: '/app/node_modules/.bin:/node_modules/.bin:/usr/local/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+#11 2.674   NODE: '/usr/local/bin/node',
+#11 2.674   npm_package_name: 'frontend',
+#11 2.674   npm_lifecycle_script: 'next build',
+#11 2.674   npm_package_version: '0.1.0',
+#11 2.674   npm_lifecycle_event: 'build',
+#11 2.674   npm_config_globalconfig: '/usr/local/etc/npmrc',
+#11 2.674   npm_config_init_module: '/root/.npm-init.js',
+#11 2.674   PWD: '/app',
+#11 2.674   npm_execpath: '/usr/local/lib/node_modules/npm/bin/npm-cli.js',
+#11 2.674   npm_config_global_prefix: '/usr/local',
+#11 2.674   npm_command: 'run-script',
+#11 2.674   INIT_CWD: '/app',
+#11 2.674   EDITOR: 'vi',
+#11 2.674   NODE_ENV: 'production',
+#11 2.674   NEXT_RUNTIME: 'nodejs',
+#11 2.674   NEXT_PRIVATE_BUILD_WORKER: '1',
+#11 2.674   npm_config_noproxy: '',
+#11 2.674   NEXT_DEPLOYMENT_ID: ''
+#11 2.674 }
+#11 8.187 The environment {
+#11 8.187   npm_config_user_agent: 'npm/10.8.2 node/v20.17.0 linux x64 workspaces/false',
+#11 8.187   NODE_VERSION: '20.17.0',
+#11 8.187   YARN_VERSION: '1.22.22',
+#11 8.187   npm_node_execpath: '/usr/local/bin/node',
+#11 8.187   HOME: '/root',
+#11 8.187   npm_package_json: '/app/package.json',
+#11 8.187   npm_config_userconfig: '/root/.npmrc',
+#11 8.187   npm_config_local_prefix: '/app',
+#11 8.187   COLOR: '0',
+#11 8.187   npm_config_prefix: '/usr/local',
+#11 8.187   npm_config_npm_version: '10.8.2',
+#11 8.187   npm_config_cache: '/root/.npm',
+#11 8.187   npm_config_node_gyp: '/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js',
+#11 8.187   PATH: '/app/node_modules/.bin:/node_modules/.bin:/usr/local/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+#11 8.187   NODE: '/usr/local/bin/node',
+#11 8.187   npm_package_name: 'frontend',
+#11 8.187   npm_lifecycle_script: 'next build',
+#11 8.187   npm_package_version: '0.1.0',
+#11 8.187   npm_lifecycle_event: 'build',
+#11 8.187   npm_config_globalconfig: '/usr/local/etc/npmrc',
+#11 8.187   npm_config_init_module: '/root/.npm-init.js',
+#11 8.187   PWD: '/app',
+#11 8.187   npm_execpath: '/usr/local/lib/node_modules/npm/bin/npm-cli.js',
+#11 8.187   npm_config_global_prefix: '/usr/local',
+#11 8.187   npm_command: 'run-script',
+#11 8.187   INIT_CWD: '/app',
+#11 8.187   EDITOR: 'vi',
+#11 8.187   NODE_ENV: 'production',
+#11 8.187   NEXT_RUNTIME: 'nodejs',
+#11 8.187   NEXT_PRIVATE_BUILD_WORKER: '1',
+#11 8.187   npm_config_noproxy: '',
+#11 8.187   NEXT_DEPLOYMENT_ID: ''
+#11 8.187 }
+#11 9.248 The environment {
+#11 9.248   npm_config_user_agent: 'npm/10.8.2 node/v20.17.0 linux x64 workspaces/false',
+#11 9.248   NODE_VERSION: '20.17.0',
+#11 9.248   YARN_VERSION: '1.22.22',
+#11 9.248   npm_node_execpath: '/usr/local/bin/node',
+#11 9.248   HOME: '/root',
+#11 9.248   npm_package_json: '/app/package.json',
+#11 9.248   npm_config_userconfig: '/root/.npmrc',
+#11 9.248   npm_config_local_prefix: '/app',
+#11 9.248   COLOR: '0',
+#11 9.248   npm_config_prefix: '/usr/local',
+#11 9.248   npm_config_npm_version: '10.8.2',
+#11 9.248   npm_config_cache: '/root/.npm',
+#11 9.248   npm_config_node_gyp: '/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js',
+#11 9.248   PATH: '/app/node_modules/.bin:/node_modules/.bin:/usr/local/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+#11 9.248   NODE: '/usr/local/bin/node',
+#11 9.248   npm_package_name: 'frontend',
+#11 9.248   npm_lifecycle_script: 'next build',
+#11 9.248   npm_package_version: '0.1.0',
+#11 9.248   npm_lifecycle_event: 'build',
+#11 9.248   npm_config_globalconfig: '/usr/local/etc/npmrc',
+#11 9.248   npm_config_init_module: '/root/.npm-init.js',
+#11 9.248   PWD: '/app',
+#11 9.248   npm_execpath: '/usr/local/lib/node_modules/npm/bin/npm-cli.js',
+#11 9.248   npm_config_global_prefix: '/usr/local',
+#11 9.248   npm_command: 'run-script',
+#11 9.248   INIT_CWD: '/app',
+#11 9.248   EDITOR: 'vi',
+#11 9.248   NODE_ENV: 'production',
+#11 9.248   NEXT_RUNTIME: 'nodejs',
+#11 9.248   NEXT_PRIVATE_BUILD_WORKER: '1',
+#11 9.248   npm_config_noproxy: '',
+#11 9.248   NEXT_DEPLOYMENT_ID: ''
+#11 9.248 }
+#11 15.86  ✓ Compiled successfully
+#11 15.86    Linting and checking validity of types ...
+#11 20.07 
+#11 20.07 ./src/app/components/RequestFlashcard.tsx
+#11 20.07 15:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+#11 20.07 
+#11 20.07 info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+#11 21.01    Collecting page data ...
+#11 22.41    Generating static pages (0/9) ...
+#11 22.69    Generating static pages (2/9) 
+#11 22.72    Generating static pages (4/9) 
+#11 22.82 Got env:  {
+#11 22.82   npm_config_user_agent: 'npm/10.8.2 node/v20.17.0 linux x64 workspaces/false',
+#11 22.82   NODE_VERSION: '20.17.0',
+#11 22.82   YARN_VERSION: '1.22.22',
+#11 22.82   npm_node_execpath: '/usr/local/bin/node',
+#11 22.82   HOME: '/root',
+#11 22.82   npm_package_json: '/app/package.json',
+#11 22.82   npm_config_userconfig: '/root/.npmrc',
+#11 22.82   npm_config_local_prefix: '/app',
+#11 22.82   COLOR: '0',
+#11 22.82   npm_config_prefix: '/usr/local',
+#11 22.82   npm_config_npm_version: '10.8.2',
+#11 22.82   npm_config_cache: '/root/.npm',
+#11 22.82   npm_config_node_gyp: '/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js',
+#11 22.82   PATH: '/app/node_modules/.bin:/node_modules/.bin:/usr/local/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+#11 22.82   NODE: '/usr/local/bin/node',
+#11 22.82   npm_package_name: 'frontend',
+#11 22.82   npm_lifecycle_script: 'next build',
+#11 22.82   npm_package_version: '0.1.0',
+#11 22.82   npm_lifecycle_event: 'build',
+#11 22.82   npm_config_globalconfig: '/usr/local/etc/npmrc',
+#11 22.82   npm_config_init_module: '/root/.npm-init.js',
+#11 22.82   PWD: '/app',
+#11 22.82   npm_execpath: '/usr/local/lib/node_modules/npm/bin/npm-cli.js',
+#11 22.82   npm_config_global_prefix: '/usr/local',
+#11 22.82   npm_command: 'run-script',
+#11 22.82   INIT_CWD: '/app',
+#11 22.82   EDITOR: 'vi',
+#11 22.82   NODE_ENV: 'production',
+#11 22.82   NEXT_RUNTIME: 'nodejs',
+#11 22.82   npm_config_noproxy: '',
+#11 22.82   NEXT_DEPLOYMENT_ID: '',
+#11 22.82   NEXT_PHASE: 'phase-production-build',
+#11 22.82   NODE_OPTIONS: '',
+#11 22.82   NEXT_IS_EXPORT_WORKER: 'true',
+#11 22.82   __NEXT_PRIVATE_RUNTIME_TYPE: ''
+#11 22.82 }
+#11 22.84    Generating static pages (6/9) 
+#11 22.99  ✓ Generating static pages (9/9)
+#11 23.50    Finalizing page optimization ...
+#11 23.50    Collecting build traces ...
+#11 28.48 
+#11 28.49 Route (app)                              Size     First Load JS
+#11 28.49 ┌ ○ /                                    841 B           109 kB
+#11 28.49 ├ ○ /_not-found                          871 B          88.1 kB
+#11 28.49 ├ ○ /create                              753 B          87.9 kB
+#11 28.49 ├ ○ /explore                             841 B           109 kB
+#11 28.49 ├ ○ /notifications                       155 B          87.3 kB
+#11 28.49 └ ○ /profile                             155 B          87.3 kB
+#11 28.49 + First Load JS shared by all            87.2 kB
+#11 28.49   ├ chunks/23-4428f70f50ceb88a.js        31.6 kB
+#11 28.49   ├ chunks/fd9d1056-b6e16a5f15b47ad4.js  53.6 kB
+#11 28.49   └ other shared chunks (total)          1.95 kB
+#11 28.49 
+#11 28.49 
+#11 28.49 ○  (Static)  prerendered as static content
+#11 28.49 
+#11 DONE 29.9s
+
+#12 exporting to image
+#12 exporting layers
+#12 exporting layers 12.1s done
+#12 writing image sha256:a825bf313c2e37604cf0a3c182b4ff706251c79fb307301e66012a80d89da8c0 0.1s done
+#12 DONE 12.7s
