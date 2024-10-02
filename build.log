@@ -1,279 +1,412 @@
 #0 building with "default" instance using docker driver
 
-#1 [internal] load build definition from Dockerfile
-#1 transferring dockerfile:
-#1 transferring dockerfile: 191B done
-#1 DONE 0.8s
+#1 [backend internal] load build definition from Dockerfile
+#1 transferring dockerfile: 480B done
+#1 DONE 0.1s
 
-#2 [internal] load metadata for docker.io/library/node:20
+#2 [backend internal] load metadata for docker.io/library/node:20
 #2 ...
 
-#3 [auth] library/node:pull token for registry-1.docker.io
+#3 [backend auth] library/node:pull token for registry-1.docker.io
 #3 DONE 0.0s
 
-#2 [internal] load metadata for docker.io/library/node:20
-#2 DONE 1.6s
+#2 [backend internal] load metadata for docker.io/library/node:20
+#2 DONE 0.3s
 
-#4 [internal] load .dockerignore
-#4 transferring context:
-#4 transferring context: 66B done
-#4 DONE 0.5s
+#4 [backend internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.1s
 
-#5 [1/6] FROM docker.io/library/node:20@sha256:db5dd2f30cb82a8bdbd16acd4a8f3f2789f5b24f6ce43f98aa041be848c82e45
+#5 [backend  1/11] FROM docker.io/library/node:20@sha256:db5dd2f30cb82a8bdbd16acd4a8f3f2789f5b24f6ce43f98aa041be848c82e45
 #5 DONE 0.0s
 
-#6 [2/6] WORKDIR /app
-#6 CACHED
+#6 [backend internal] load build context
+#6 transferring context: 100.97kB 0.3s done
+#6 DONE 0.3s
 
-#7 [internal] load build context
-#7 transferring context: 10.06kB done
-#7 DONE 0.6s
+#7 [backend  3/11] COPY package*.json ./
+#7 CACHED
 
-#8 [3/6] COPY package*.json ./
-#8 DONE 1.9s
+#8 [backend  4/11] COPY backend/package*.json ./backend/
+#8 CACHED
 
-#9 [4/6] RUN npm install
-#9 4.261 npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
-#9 4.655 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
-#9 5.537 npm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead
-#9 5.571 npm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead
-#9 5.649 npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
-#9 13.75 
-#9 13.75 added 379 packages, and audited 380 packages in 12s
-#9 13.75 
-#9 13.75 142 packages are looking for funding
-#9 13.75   run `npm fund` for details
-#9 13.75 
-#9 13.75 found 0 vulnerabilities
-#9 13.76 npm notice
-#9 13.76 npm notice New patch version of npm available! 10.8.2 -> 10.8.3
-#9 13.76 npm notice Changelog: https://github.com/npm/cli/releases/tag/v10.8.3
-#9 13.76 npm notice To update run: npm install -g npm@10.8.3
-#9 13.76 npm notice
-#9 DONE 21.0s
+#9 [backend  2/11] WORKDIR /app
+#9 CACHED
 
-#10 [5/6] COPY . .
-#10 DONE 4.1s
+#10 [backend  5/11] RUN npm install
+#10 CACHED
 
-#11 [6/6] RUN npm run build
-#11 1.129 
-#11 1.129 > frontend@0.1.0 build
-#11 1.129 > next build
-#11 1.129 
-#11 1.723 The environment {
-#11 1.723   npm_config_user_agent: 'npm/10.8.2 node/v20.17.0 linux x64 workspaces/false',
-#11 1.723   NODE_VERSION: '20.17.0',
-#11 1.723   YARN_VERSION: '1.22.22',
-#11 1.723   npm_node_execpath: '/usr/local/bin/node',
-#11 1.723   HOME: '/root',
-#11 1.723   npm_package_json: '/app/package.json',
-#11 1.723   npm_config_userconfig: '/root/.npmrc',
-#11 1.723   npm_config_local_prefix: '/app',
-#11 1.723   COLOR: '0',
-#11 1.723   npm_config_prefix: '/usr/local',
-#11 1.723   npm_config_npm_version: '10.8.2',
-#11 1.723   npm_config_cache: '/root/.npm',
-#11 1.723   npm_config_node_gyp: '/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js',
-#11 1.723   PATH: '/app/node_modules/.bin:/node_modules/.bin:/usr/local/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
-#11 1.723   NODE: '/usr/local/bin/node',
-#11 1.723   npm_package_name: 'frontend',
-#11 1.723   npm_lifecycle_script: 'next build',
-#11 1.723   npm_package_version: '0.1.0',
-#11 1.723   npm_lifecycle_event: 'build',
-#11 1.723   npm_config_globalconfig: '/usr/local/etc/npmrc',
-#11 1.723   npm_config_init_module: '/root/.npm-init.js',
-#11 1.723   PWD: '/app',
-#11 1.723   npm_execpath: '/usr/local/lib/node_modules/npm/bin/npm-cli.js',
-#11 1.723   npm_config_global_prefix: '/usr/local',
-#11 1.723   npm_command: 'run-script',
-#11 1.723   INIT_CWD: '/app',
-#11 1.723   EDITOR: 'vi',
-#11 1.723   NODE_ENV: 'production',
-#11 1.723   NEXT_RUNTIME: 'nodejs',
-#11 1.723   npm_config_noproxy: ''
-#11 1.723 }
-#11 1.996 Attention: Next.js now collects completely anonymous telemetry regarding usage.
-#11 1.996 This information is used to shape Next.js' roadmap and prioritize features.
-#11 1.996 You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
-#11 1.996 https://nextjs.org/telemetry
-#11 1.997 
-#11 2.072   ▲ Next.js 14.2.13
-#11 2.072 
-#11 2.144    Creating an optimized production build ...
-#11 2.674 The environment {
-#11 2.674   npm_config_user_agent: 'npm/10.8.2 node/v20.17.0 linux x64 workspaces/false',
-#11 2.674   NODE_VERSION: '20.17.0',
-#11 2.674   YARN_VERSION: '1.22.22',
-#11 2.674   npm_node_execpath: '/usr/local/bin/node',
-#11 2.674   HOME: '/root',
-#11 2.674   npm_package_json: '/app/package.json',
-#11 2.674   npm_config_userconfig: '/root/.npmrc',
-#11 2.674   npm_config_local_prefix: '/app',
-#11 2.674   COLOR: '0',
-#11 2.674   npm_config_prefix: '/usr/local',
-#11 2.674   npm_config_npm_version: '10.8.2',
-#11 2.674   npm_config_cache: '/root/.npm',
-#11 2.674   npm_config_node_gyp: '/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js',
-#11 2.674   PATH: '/app/node_modules/.bin:/node_modules/.bin:/usr/local/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
-#11 2.674   NODE: '/usr/local/bin/node',
-#11 2.674   npm_package_name: 'frontend',
-#11 2.674   npm_lifecycle_script: 'next build',
-#11 2.674   npm_package_version: '0.1.0',
-#11 2.674   npm_lifecycle_event: 'build',
-#11 2.674   npm_config_globalconfig: '/usr/local/etc/npmrc',
-#11 2.674   npm_config_init_module: '/root/.npm-init.js',
-#11 2.674   PWD: '/app',
-#11 2.674   npm_execpath: '/usr/local/lib/node_modules/npm/bin/npm-cli.js',
-#11 2.674   npm_config_global_prefix: '/usr/local',
-#11 2.674   npm_command: 'run-script',
-#11 2.674   INIT_CWD: '/app',
-#11 2.674   EDITOR: 'vi',
-#11 2.674   NODE_ENV: 'production',
-#11 2.674   NEXT_RUNTIME: 'nodejs',
-#11 2.674   NEXT_PRIVATE_BUILD_WORKER: '1',
-#11 2.674   npm_config_noproxy: '',
-#11 2.674   NEXT_DEPLOYMENT_ID: ''
-#11 2.674 }
-#11 8.187 The environment {
-#11 8.187   npm_config_user_agent: 'npm/10.8.2 node/v20.17.0 linux x64 workspaces/false',
-#11 8.187   NODE_VERSION: '20.17.0',
-#11 8.187   YARN_VERSION: '1.22.22',
-#11 8.187   npm_node_execpath: '/usr/local/bin/node',
-#11 8.187   HOME: '/root',
-#11 8.187   npm_package_json: '/app/package.json',
-#11 8.187   npm_config_userconfig: '/root/.npmrc',
-#11 8.187   npm_config_local_prefix: '/app',
-#11 8.187   COLOR: '0',
-#11 8.187   npm_config_prefix: '/usr/local',
-#11 8.187   npm_config_npm_version: '10.8.2',
-#11 8.187   npm_config_cache: '/root/.npm',
-#11 8.187   npm_config_node_gyp: '/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js',
-#11 8.187   PATH: '/app/node_modules/.bin:/node_modules/.bin:/usr/local/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
-#11 8.187   NODE: '/usr/local/bin/node',
-#11 8.187   npm_package_name: 'frontend',
-#11 8.187   npm_lifecycle_script: 'next build',
-#11 8.187   npm_package_version: '0.1.0',
-#11 8.187   npm_lifecycle_event: 'build',
-#11 8.187   npm_config_globalconfig: '/usr/local/etc/npmrc',
-#11 8.187   npm_config_init_module: '/root/.npm-init.js',
-#11 8.187   PWD: '/app',
-#11 8.187   npm_execpath: '/usr/local/lib/node_modules/npm/bin/npm-cli.js',
-#11 8.187   npm_config_global_prefix: '/usr/local',
-#11 8.187   npm_command: 'run-script',
-#11 8.187   INIT_CWD: '/app',
-#11 8.187   EDITOR: 'vi',
-#11 8.187   NODE_ENV: 'production',
-#11 8.187   NEXT_RUNTIME: 'nodejs',
-#11 8.187   NEXT_PRIVATE_BUILD_WORKER: '1',
-#11 8.187   npm_config_noproxy: '',
-#11 8.187   NEXT_DEPLOYMENT_ID: ''
-#11 8.187 }
-#11 9.248 The environment {
-#11 9.248   npm_config_user_agent: 'npm/10.8.2 node/v20.17.0 linux x64 workspaces/false',
-#11 9.248   NODE_VERSION: '20.17.0',
-#11 9.248   YARN_VERSION: '1.22.22',
-#11 9.248   npm_node_execpath: '/usr/local/bin/node',
-#11 9.248   HOME: '/root',
-#11 9.248   npm_package_json: '/app/package.json',
-#11 9.248   npm_config_userconfig: '/root/.npmrc',
-#11 9.248   npm_config_local_prefix: '/app',
-#11 9.248   COLOR: '0',
-#11 9.248   npm_config_prefix: '/usr/local',
-#11 9.248   npm_config_npm_version: '10.8.2',
-#11 9.248   npm_config_cache: '/root/.npm',
-#11 9.248   npm_config_node_gyp: '/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js',
-#11 9.248   PATH: '/app/node_modules/.bin:/node_modules/.bin:/usr/local/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
-#11 9.248   NODE: '/usr/local/bin/node',
-#11 9.248   npm_package_name: 'frontend',
-#11 9.248   npm_lifecycle_script: 'next build',
-#11 9.248   npm_package_version: '0.1.0',
-#11 9.248   npm_lifecycle_event: 'build',
-#11 9.248   npm_config_globalconfig: '/usr/local/etc/npmrc',
-#11 9.248   npm_config_init_module: '/root/.npm-init.js',
-#11 9.248   PWD: '/app',
-#11 9.248   npm_execpath: '/usr/local/lib/node_modules/npm/bin/npm-cli.js',
-#11 9.248   npm_config_global_prefix: '/usr/local',
-#11 9.248   npm_command: 'run-script',
-#11 9.248   INIT_CWD: '/app',
-#11 9.248   EDITOR: 'vi',
-#11 9.248   NODE_ENV: 'production',
-#11 9.248   NEXT_RUNTIME: 'nodejs',
-#11 9.248   NEXT_PRIVATE_BUILD_WORKER: '1',
-#11 9.248   npm_config_noproxy: '',
-#11 9.248   NEXT_DEPLOYMENT_ID: ''
-#11 9.248 }
-#11 15.86  ✓ Compiled successfully
-#11 15.86    Linting and checking validity of types ...
-#11 20.07 
-#11 20.07 ./src/app/components/RequestFlashcard.tsx
-#11 20.07 15:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
-#11 20.07 
-#11 20.07 info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
-#11 21.01    Collecting page data ...
-#11 22.41    Generating static pages (0/9) ...
-#11 22.69    Generating static pages (2/9) 
-#11 22.72    Generating static pages (4/9) 
-#11 22.82 Got env:  {
-#11 22.82   npm_config_user_agent: 'npm/10.8.2 node/v20.17.0 linux x64 workspaces/false',
-#11 22.82   NODE_VERSION: '20.17.0',
-#11 22.82   YARN_VERSION: '1.22.22',
-#11 22.82   npm_node_execpath: '/usr/local/bin/node',
-#11 22.82   HOME: '/root',
-#11 22.82   npm_package_json: '/app/package.json',
-#11 22.82   npm_config_userconfig: '/root/.npmrc',
-#11 22.82   npm_config_local_prefix: '/app',
-#11 22.82   COLOR: '0',
-#11 22.82   npm_config_prefix: '/usr/local',
-#11 22.82   npm_config_npm_version: '10.8.2',
-#11 22.82   npm_config_cache: '/root/.npm',
-#11 22.82   npm_config_node_gyp: '/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js',
-#11 22.82   PATH: '/app/node_modules/.bin:/node_modules/.bin:/usr/local/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
-#11 22.82   NODE: '/usr/local/bin/node',
-#11 22.82   npm_package_name: 'frontend',
-#11 22.82   npm_lifecycle_script: 'next build',
-#11 22.82   npm_package_version: '0.1.0',
-#11 22.82   npm_lifecycle_event: 'build',
-#11 22.82   npm_config_globalconfig: '/usr/local/etc/npmrc',
-#11 22.82   npm_config_init_module: '/root/.npm-init.js',
-#11 22.82   PWD: '/app',
-#11 22.82   npm_execpath: '/usr/local/lib/node_modules/npm/bin/npm-cli.js',
-#11 22.82   npm_config_global_prefix: '/usr/local',
-#11 22.82   npm_command: 'run-script',
-#11 22.82   INIT_CWD: '/app',
-#11 22.82   EDITOR: 'vi',
-#11 22.82   NODE_ENV: 'production',
-#11 22.82   NEXT_RUNTIME: 'nodejs',
-#11 22.82   npm_config_noproxy: '',
-#11 22.82   NEXT_DEPLOYMENT_ID: '',
-#11 22.82   NEXT_PHASE: 'phase-production-build',
-#11 22.82   NODE_OPTIONS: '',
-#11 22.82   NEXT_IS_EXPORT_WORKER: 'true',
-#11 22.82   __NEXT_PRIVATE_RUNTIME_TYPE: ''
-#11 22.82 }
-#11 22.84    Generating static pages (6/9) 
-#11 22.99  ✓ Generating static pages (9/9)
-#11 23.50    Finalizing page optimization ...
-#11 23.50    Collecting build traces ...
-#11 28.48 
-#11 28.49 Route (app)                              Size     First Load JS
-#11 28.49 ┌ ○ /                                    841 B           109 kB
-#11 28.49 ├ ○ /_not-found                          871 B          88.1 kB
-#11 28.49 ├ ○ /create                              753 B          87.9 kB
-#11 28.49 ├ ○ /explore                             841 B           109 kB
-#11 28.49 ├ ○ /notifications                       155 B          87.3 kB
-#11 28.49 └ ○ /profile                             155 B          87.3 kB
-#11 28.49 + First Load JS shared by all            87.2 kB
-#11 28.49   ├ chunks/23-4428f70f50ceb88a.js        31.6 kB
-#11 28.49   ├ chunks/fd9d1056-b6e16a5f15b47ad4.js  53.6 kB
-#11 28.49   └ other shared chunks (total)          1.95 kB
-#11 28.49 
-#11 28.49 
-#11 28.49 ○  (Static)  prerendered as static content
-#11 28.49 
-#11 DONE 29.9s
+#11 [backend  6/11] COPY backend ./backend
+#11 DONE 0.2s
 
-#12 exporting to image
-#12 exporting layers
-#12 exporting layers 12.1s done
-#12 writing image sha256:a825bf313c2e37604cf0a3c182b4ff706251c79fb307301e66012a80d89da8c0 0.1s done
-#12 DONE 12.7s
+#12 [backend  7/11] COPY shared ./shared
+#12 DONE 0.3s
+
+#13 [backend  8/11] WORKDIR /app/backend
+#13 DONE 0.3s
+
+#14 [backend  9/11] RUN npm run build
+#14 0.693 
+#14 0.693 > backend@1.0.0 build
+#14 0.693 > tsc
+#14 0.693 
+#14 DONE 4.9s
+
+#15 [backend 10/11] RUN ls
+#15 0.565 Dockerfile
+#15 0.565 Dockerfile copy
+#15 0.565 Dockerfile.dev
+#15 0.565 build.log
+#15 0.565 dist
+#15 0.565 node_modules
+#15 0.565 package-lock.json
+#15 0.565 package.json
+#15 0.565 src
+#15 0.565 tsconfig.json
+#15 DONE 0.7s
+
+#16 [backend 11/11] RUN ls -R ./dist
+#16 0.503 ./dist:
+#16 0.503 backend
+#16 0.503 shared
+#16 0.503 
+#16 0.503 ./dist/backend:
+#16 0.503 src
+#16 0.503 
+#16 0.503 ./dist/backend/src:
+#16 0.503 constants.js
+#16 0.503 controllers
+#16 0.503 index.js
+#16 0.503 models
+#16 0.503 routes
+#16 0.503 seedData.js
+#16 0.503 
+#16 0.503 ./dist/backend/src/controllers:
+#16 0.503 organizationController.js
+#16 0.503 postController.js
+#16 0.503 profilesController.js
+#16 0.503 
+#16 0.503 ./dist/backend/src/models:
+#16 0.503 DonorProfile.js
+#16 0.503 Organization.js
+#16 0.503 Post.js
+#16 0.503 User.js
+#16 0.503 
+#16 0.503 ./dist/backend/src/routes:
+#16 0.503 organizationRoutes.js
+#16 0.503 postRoutes.js
+#16 0.503 profilesRoutes.js
+#16 0.503 
+#16 0.503 ./dist/shared:
+#16 0.503 types.js
+#16 DONE 0.6s
+
+#17 [backend] exporting to image
+#17 exporting layers
+#17 exporting layers 7.3s done
+#17 writing image sha256:08b12811b8bfd165f21ec740ddd1d9efb339f073bd08fc5bf0dc6eadb608bdc2
+#17 writing image sha256:08b12811b8bfd165f21ec740ddd1d9efb339f073bd08fc5bf0dc6eadb608bdc2 0.0s done
+#17 naming to docker.io/library/reimagined-couscous-backend 0.0s done
+#17 DONE 7.5s
+
+#18 [backend] resolving provenance for metadata file
+#18 DONE 0.0s
+
+#19 [frontend internal] load build definition from Dockerfile
+#19 transferring dockerfile:
+#19 transferring dockerfile: 386B done
+#19 DONE 0.1s
+
+#2 [frontend internal] load metadata for docker.io/library/node:20
+#2 DONE 0.5s
+
+#20 [frontend internal] load .dockerignore
+#20 transferring context: 2B done
+#20 DONE 0.1s
+
+#5 [frontend 1/9] FROM docker.io/library/node:20@sha256:db5dd2f30cb82a8bdbd16acd4a8f3f2789f5b24f6ce43f98aa041be848c82e45
+#5 DONE 0.0s
+
+#21 [frontend internal] load build context
+#21 transferring context: 94.36MB 0.8s done
+#21 DONE 0.9s
+
+#22 [frontend 4/9] COPY frontend/package*.json ./frontend/
+#22 CACHED
+
+#23 [frontend 7/9] COPY ../shared ./shared
+#23 CACHED
+
+#24 [frontend 5/9] RUN npm install
+#24 CACHED
+
+#25 [frontend 6/9] COPY frontend ./frontend
+#25 CACHED
+
+#26 [frontend 8/9] WORKDIR /app/frontend
+#26 CACHED
+
+#9 [frontend 2/9] WORKDIR /app
+#9 CACHED
+
+#27 [frontend 3/9] COPY package*.json ./
+#27 CACHED
+
+#28 [frontend 9/9] RUN npm run build
+#28 CACHED
+
+#29 [frontend] exporting to image
+#29 exporting layers done
+#29 writing image sha256:3f324fd40820bfe28017444b465bf80fa9d6dc1bda873fd626efebf9ef0bafa3 0.0s done
+#29 naming to docker.io/library/reimagined-couscous-frontend 0.0s done
+#29 DONE 0.1s
+
+#30 [frontend] resolving provenance for metadata file
+#30 DONE 0.0s
+ Container reimagined-couscous-mongodb-1  Created
+ Container reimagined-couscous-frontend-1  Stopping
+ Container reimagined-couscous-frontend-1  Stopped
+ Container reimagined-couscous-backend-1  Recreate
+ Container reimagined-couscous-backend-1  Recreated
+ Container reimagined-couscous-frontend-1  Created
+Attaching to backend-1, frontend-1, mongodb-1
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:03.294+00:00"},"s":"I",  "c":"CONTROL",  "id":23285,   "ctx":"main","msg":"Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'"}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:03.303+00:00"},"s":"I",  "c":"CONTROL",  "id":5945603, "ctx":"main","msg":"Multi threading initialized"}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:03.303+00:00"},"s":"I",  "c":"NETWORK",  "id":4648601, "ctx":"main","msg":"Implicit TCP FastOpen unavailable. If TCP FastOpen is required, set at least one of the related parameters","attr":{"relatedParameters":["tcpFastOpenServer","tcpFastOpenClient","tcpFastOpenQueueSize"]}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:03.304+00:00"},"s":"I",  "c":"NETWORK",  "id":4915701, "ctx":"main","msg":"Initialized wire specification","attr":{"spec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":25},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":25},"outgoing":{"minWireVersion":6,"maxWireVersion":25},"isInternalClient":true}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:03.305+00:00"},"s":"I",  "c":"TENANT_M", "id":7091600, "ctx":"main","msg":"Starting TenantMigrationAccessBlockerRegistry"}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:03.305+00:00"},"s":"I",  "c":"CONTROL",  "id":4615611, "ctx":"initandlisten","msg":"MongoDB starting","attr":{"pid":1,"port":27017,"dbPath":"/data/db","architecture":"64-bit","host":"b1c564fb37c4"}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:03.305+00:00"},"s":"I",  "c":"CONTROL",  "id":23403,   "ctx":"initandlisten","msg":"Build Info","attr":{"buildInfo":{"version":"8.0.0","gitVersion":"d7cd03b239ac39a3c7d63f7145e91aca36f93db6","openSSLVersion":"OpenSSL 3.0.13 30 Jan 2024","modules":[],"allocator":"tcmalloc-google","environment":{"distmod":"ubuntu2404","distarch":"x86_64","target_arch":"x86_64"}}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:03.305+00:00"},"s":"I",  "c":"CONTROL",  "id":51765,   "ctx":"initandlisten","msg":"Operating System","attr":{"os":{"name":"Ubuntu","version":"24.04"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:03.305+00:00"},"s":"I",  "c":"CONTROL",  "id":21951,   "ctx":"initandlisten","msg":"Options set by command line","attr":{"options":{"net":{"bindIp":"*"}}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:03.306+00:00"},"s":"I",  "c":"STORAGE",  "id":22270,   "ctx":"initandlisten","msg":"Storage engine to use detected by data files","attr":{"dbpath":"/data/db","storageEngine":"wiredTiger"}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:03.306+00:00"},"s":"I",  "c":"STORAGE",  "id":22297,   "ctx":"initandlisten","msg":"Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem","tags":["startupWarnings"]}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:03.306+00:00"},"s":"I",  "c":"STORAGE",  "id":22315,   "ctx":"initandlisten","msg":"Opening WiredTiger","attr":{"config":"create,cache_size=3452M,session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,remove=true,path=journal,compressor=snappy),builtin_extension_config=(zstd=(compression_level=6)),file_manager=(close_idle_time=600,close_scan_interval=10,close_handle_minimum=2000),statistics_log=(wait=0),json_output=(error,message),verbose=[recovery_progress:1,checkpoint_progress:1,compact_progress:1,backup:0,checkpoint:0,compact:0,evict:0,history_store:0,recovery:0,rts:0,salvage:0,tiered:0,timestamp:0,transaction:0,verify:0,log:0],prefetch=(available=true,default=false),"}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:03.522+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727831883,"ts_usec":522384,"thread":"1:0x74d78adcc680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Recovering log 28 through 29"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:03.598+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727831883,"ts_usec":598263,"thread":"1:0x74d78adcc680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Recovering log 29 through 29"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:03.696+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727831883,"ts_usec":696844,"thread":"1:0x74d78adcc680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Main recovery loop: starting at 28/5632 to 29/256"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:03.754+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727831883,"ts_usec":754889,"thread":"1:0x74d78adcc680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Recovering log 28 through 29"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:03.829+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727831883,"ts_usec":829233,"thread":"1:0x74d78adcc680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Recovering log 29 through 29"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:03.859+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727831883,"ts_usec":859308,"thread":"1:0x74d78adcc680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"recovery log replay has successfully finished and ran for 337 milliseconds"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:03.859+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727831883,"ts_usec":859468,"thread":"1:0x74d78adcc680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Set global recovery timestamp: (0, 0)"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:03.859+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727831883,"ts_usec":859553,"thread":"1:0x74d78adcc680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Set global oldest timestamp: (0, 0)"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:03.860+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727831883,"ts_usec":860942,"thread":"1:0x74d78adcc680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"recovery rollback to stable has successfully finished and ran for 1 milliseconds"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:03.911+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727831883,"ts_usec":911590,"thread":"1:0x74d78adcc680","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 1, snapshot max: 1 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.065+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727831884,"ts_usec":64989,"thread":"1:0x74d78adcc680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"recovery checkpoint has successfully finished and ran for 188 milliseconds"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.065+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727831884,"ts_usec":65643,"thread":"1:0x74d78adcc680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"recovery was completed successfully and took 543ms, including 337ms for the log replay, 1ms for the rollback to stable, and 188ms for the checkpoint."}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.081+00:00"},"s":"I",  "c":"STORAGE",  "id":4795906, "ctx":"initandlisten","msg":"WiredTiger opened","attr":{"durationMillis":775}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.081+00:00"},"s":"I",  "c":"RECOVERY", "id":23987,   "ctx":"initandlisten","msg":"WiredTiger recoveryTimestamp","attr":{"recoveryTimestamp":{"$timestamp":{"t":0,"i":0}}}}
+backend-1   | 
+backend-1   | > backend@1.0.0 start
+backend-1   | > node dist/backend/src/index.js
+backend-1   | 
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.197+00:00"},"s":"W",  "c":"CONTROL",  "id":22120,   "ctx":"initandlisten","msg":"Access control is not enabled for the database. Read and write access to data and configuration is unrestricted","tags":["startupWarnings"]}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.197+00:00"},"s":"W",  "c":"CONTROL",  "id":8640301, "ctx":"initandlisten","msg":"For customers running the updated tcmalloc-google memory allocator, we suggest setting the contents of sysfsFile to 'defer+madvise'","attr":{"sysfsFile":"/sys/kernel/mm/transparent_hugepage/defrag","currentValue":"madvise"},"tags":["startupWarnings"]}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.197+00:00"},"s":"W",  "c":"CONTROL",  "id":8640302, "ctx":"initandlisten","msg":"We suggest setting the contents of sysfsFile to 0.","attr":{"sysfsFile":"/sys/kernel/mm/transparent_hugepage/khugepaged/max_ptes_none","currentValue":511},"tags":["startupWarnings"]}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.197+00:00"},"s":"W",  "c":"CONTROL",  "id":8718500, "ctx":"initandlisten","msg":"Your system has glibc support for rseq built in, which is not yet supported by tcmalloc-google and has critical performance implications. Please set the environment variable GLIBC_TUNABLES=glibc.pthread.rseq=0","tags":["startupWarnings"]}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.197+00:00"},"s":"W",  "c":"NETWORK",  "id":5123300, "ctx":"initandlisten","msg":"vm.max_map_count is too low","attr":{"currentValue":65530,"recommendedMinimum":1677720,"maxConns":838860},"tags":["startupWarnings"]}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.205+00:00"},"s":"I",  "c":"NETWORK",  "id":4915702, "ctx":"initandlisten","msg":"Updated wire specification","attr":{"oldSpec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":25},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":25},"outgoing":{"minWireVersion":6,"maxWireVersion":25},"isInternalClient":true},"newSpec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":25},"incomingInternalClient":{"minWireVersion":25,"maxWireVersion":25},"outgoing":{"minWireVersion":25,"maxWireVersion":25},"isInternalClient":true}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.205+00:00"},"s":"I",  "c":"REPL",     "id":5853300, "ctx":"initandlisten","msg":"current featureCompatibilityVersion value","attr":{"featureCompatibilityVersion":"8.0","context":"startup"}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.205+00:00"},"s":"I",  "c":"STORAGE",  "id":5071100, "ctx":"initandlisten","msg":"Clearing temp directory"}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.211+00:00"},"s":"I",  "c":"CONTROL",  "id":6608200, "ctx":"initandlisten","msg":"Initializing cluster server parameters from disk"}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.211+00:00"},"s":"I",  "c":"CONTROL",  "id":20536,   "ctx":"initandlisten","msg":"Flow Control is enabled on this deployment"}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.211+00:00"},"s":"I",  "c":"FTDC",     "id":20625,   "ctx":"initandlisten","msg":"Initializing full-time diagnostic data capture","attr":{"dataDirectory":"/data/db/diagnostic.data"}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.227+00:00"},"s":"I",  "c":"REPL",     "id":6015317, "ctx":"initandlisten","msg":"Setting new configuration state","attr":{"newState":"ConfigReplicationDisabled","oldState":"ConfigPreStart"}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.227+00:00"},"s":"I",  "c":"STORAGE",  "id":22262,   "ctx":"initandlisten","msg":"Timestamp monitor starting"}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.233+00:00"},"s":"I",  "c":"STORAGE",  "id":7333401, "ctx":"initandlisten","msg":"Starting the DiskSpaceMonitor"}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.236+00:00"},"s":"I",  "c":"NETWORK",  "id":23015,   "ctx":"listener","msg":"Listening on","attr":{"address":"/tmp/mongodb-27017.sock"}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.237+00:00"},"s":"I",  "c":"NETWORK",  "id":23015,   "ctx":"listener","msg":"Listening on","attr":{"address":"0.0.0.0:27017"}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.237+00:00"},"s":"I",  "c":"NETWORK",  "id":23016,   "ctx":"listener","msg":"Waiting for connections","attr":{"port":27017,"ssl":"off"}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.237+00:00"},"s":"I",  "c":"CONTROL",  "id":8423403, "ctx":"initandlisten","msg":"mongod startup complete","attr":{"Summary of time elapsed":{"Startup from clean shutdown?":true,"Statistics":{"Set up periodic runner":"0 ms","Set up online certificate status protocol manager":"0 ms","Transport layer setup":"0 ms","Run initial syncer crash recovery":"0 ms","Create storage engine lock file in the data directory":"0 ms","Get metadata describing storage engine":"0 ms","Validate options in metadata against current startup options":"0 ms","Create storage engine":"796 ms","Write current PID to file":"90 ms","Initialize FCV before rebuilding indexes":"8 ms","Drop abandoned idents and get back indexes that need to be rebuilt or builds that need to be restarted":"0 ms","Rebuild indexes for collections":"0 ms","Load cluster parameters from disk for a standalone":"0 ms","Build user and roles graph":"0 ms","Set up the background thread pool responsible for waiting for opTimes to be majority committed":"0 ms","Start up the replication coordinator":"1 ms","Ensure the change stream collections on startup contain consistent data":"0 ms","Write startup options to the audit log":"0 ms","Start transport layer":"1 ms","_initAndListen total elapsed time":"932 ms"}}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.540+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"172.18.0.3:43442","uuid":{"uuid":{"$uuid":"742aa2c6-5601-4932-be64-6be6225cf975"}},"connectionId":1,"connectionCount":1}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.548+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn1","msg":"client metadata","attr":{"remote":"172.18.0.3:43442","client":"conn1","negotiatedCompressors":[],"doc":{"driver":{"name":"nodejs|Mongoose","version":"6.9.0|8.7.0"},"platform":"Node.js v20.17.0, LE","os":{"name":"linux","architecture":"x64","version":"6.5.0-1025-azure","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+backend-1   | Connected to MongoDB
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.565+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"172.18.0.3:43458","uuid":{"uuid":{"$uuid":"418cf345-52d5-4d79-943f-65c48be78e18"}},"connectionId":2,"connectionCount":2}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.565+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"172.18.0.3:43462","uuid":{"uuid":{"$uuid":"1ccf3a40-b313-476f-9125-1013d2aac58c"}},"connectionId":3,"connectionCount":3}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.566+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn2","msg":"client metadata","attr":{"remote":"172.18.0.3:43458","client":"conn2","negotiatedCompressors":[],"doc":{"driver":{"name":"nodejs|Mongoose","version":"6.9.0|8.7.0"},"platform":"Node.js v20.17.0, LE","os":{"name":"linux","architecture":"x64","version":"6.5.0-1025-azure","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.567+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn3","msg":"client metadata","attr":{"remote":"172.18.0.3:43462","client":"conn3","negotiatedCompressors":[],"doc":{"driver":{"name":"nodejs|Mongoose","version":"6.9.0|8.7.0"},"platform":"Node.js v20.17.0, LE","os":{"name":"linux","architecture":"x64","version":"6.5.0-1025-azure","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.571+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn2","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":4}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.574+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn3","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":6}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.577+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"172.18.0.3:43476","uuid":{"uuid":{"$uuid":"2383c6d7-e20e-40d7-95d8-3099b645fa7a"}},"connectionId":4,"connectionCount":4}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.578+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"172.18.0.3:43478","uuid":{"uuid":{"$uuid":"7098a3e6-67ed-431a-bf33-cfd4274a29cd"}},"connectionId":5,"connectionCount":5}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.580+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn5","msg":"client metadata","attr":{"remote":"172.18.0.3:43478","client":"conn5","negotiatedCompressors":[],"doc":{"driver":{"name":"nodejs|Mongoose","version":"6.9.0|8.7.0"},"platform":"Node.js v20.17.0, LE","os":{"name":"linux","architecture":"x64","version":"6.5.0-1025-azure","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.580+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn4","msg":"client metadata","attr":{"remote":"172.18.0.3:43476","client":"conn4","negotiatedCompressors":[],"doc":{"driver":{"name":"nodejs|Mongoose","version":"6.9.0|8.7.0"},"platform":"Node.js v20.17.0, LE","os":{"name":"linux","architecture":"x64","version":"6.5.0-1025-azure","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.582+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn5","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":2}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:04.584+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn4","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":3}}
+frontend-1  | 
+frontend-1  | > frontend@0.1.0 start
+frontend-1  | > next start
+frontend-1  | 
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:05.007+00:00"},"s":"W",  "c":"CONTROL",  "id":636300,  "ctx":"ftdc","msg":"Use of deprecated server parameter name","attr":{"deprecatedName":"internalQueryCacheSize","canonicalName":"internalQueryCacheMaxEntriesPerCollection"}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:05.010+00:00"},"s":"W",  "c":"CONTROL",  "id":636300,  "ctx":"ftdc","msg":"Use of deprecated server parameter name","attr":{"deprecatedName":"oplogSamplingLogIntervalSeconds","canonicalName":"collectionSamplingLogIntervalSeconds"}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:05.011+00:00"},"s":"W",  "c":"NETWORK",  "id":23803,   "ctx":"ftdc","msg":"Use of deprecated server parameter 'sslMode', please use 'tlsMode' instead."}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:05.011+00:00"},"s":"W",  "c":"CONTROL",  "id":636300,  "ctx":"ftdc","msg":"Use of deprecated server parameter name","attr":{"deprecatedName":"wiredTigerConcurrentReadTransactions","canonicalName":"storageEngineConcurrentReadTransactions"}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:05.011+00:00"},"s":"W",  "c":"CONTROL",  "id":636300,  "ctx":"ftdc","msg":"Use of deprecated server parameter name","attr":{"deprecatedName":"wiredTigerConcurrentWriteTransactions","canonicalName":"storageEngineConcurrentWriteTransactions"}}
+backend-1   | Error connecting to MongoDB: Error: Organization validation failed: contactEmail: Path `contactEmail` is required., profileImage: Path `profileImage` is required., longBio: Path `longBio` is required.
+backend-1   |     at ValidationError.inspect (/app/node_modules/mongoose/lib/error/validation.js:52:26)
+backend-1   |     at formatValue (node:internal/util/inspect:806:19)
+backend-1   |     at inspect (node:internal/util/inspect:365:10)
+backend-1   |     at formatWithOptionsInternal (node:internal/util/inspect:2304:40)
+backend-1   |     at formatWithOptions (node:internal/util/inspect:2166:10)
+backend-1   |     at console.value (node:internal/console/constructor:358:14)
+backend-1   |     at console.error (node:internal/console/constructor:395:61)
+backend-1   |     at /app/backend/dist/backend/src/index.js:32:13
+backend-1   |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+backend-1   |   errors: {
+backend-1   |     contactEmail: ValidatorError: Path `contactEmail` is required.
+backend-1   |         at validate (/app/node_modules/mongoose/lib/schemaType.js:1385:13)
+backend-1   |         at SchemaType.doValidate (/app/node_modules/mongoose/lib/schemaType.js:1369:7)
+backend-1   |         at /app/node_modules/mongoose/lib/document.js:3071:18
+backend-1   |         at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+backend-1   |       properties: [Object],
+backend-1   |       kind: 'required',
+backend-1   |       path: 'contactEmail',
+backend-1   |       value: undefined,
+backend-1   |       reason: undefined,
+backend-1   |       [Symbol(mongoose#validatorError)]: true
+backend-1   |     },
+backend-1   |     profileImage: ValidatorError: Path `profileImage` is required.
+backend-1   |         at validate (/app/node_modules/mongoose/lib/schemaType.js:1385:13)
+backend-1   |         at SchemaType.doValidate (/app/node_modules/mongoose/lib/schemaType.js:1369:7)
+backend-1   |         at /app/node_modules/mongoose/lib/document.js:3071:18
+backend-1   |         at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+backend-1   |       properties: [Object],
+backend-1   |       kind: 'required',
+backend-1   |       path: 'profileImage',
+backend-1   |       value: undefined,
+backend-1   |       reason: undefined,
+backend-1   |       [Symbol(mongoose#validatorError)]: true
+backend-1   |     },
+backend-1   |     longBio: ValidatorError: Path `longBio` is required.
+backend-1   |         at validate (/app/node_modules/mongoose/lib/schemaType.js:1385:13)
+backend-1   |         at SchemaType.doValidate (/app/node_modules/mongoose/lib/schemaType.js:1369:7)
+backend-1   |         at /app/node_modules/mongoose/lib/document.js:3071:18
+backend-1   |         at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+backend-1   |       properties: [Object],
+backend-1   |       kind: 'required',
+backend-1   |       path: 'longBio',
+backend-1   |       value: undefined,
+backend-1   |       reason: undefined,
+backend-1   |       [Symbol(mongoose#validatorError)]: true
+backend-1   |     }
+backend-1   |   },
+backend-1   |   _message: 'Organization validation failed'
+backend-1   | }
+frontend-1  |   ▲ Next.js 14.2.13
+frontend-1  |   - Local:        http://localhost:3000
+frontend-1  | 
+frontend-1  |  ✓ Starting...
+frontend-1  | The environment in next.config.mjs {
+frontend-1  |   npm_config_user_agent: 'npm/10.8.2 node/v20.17.0 linux x64 workspaces/true',
+frontend-1  |   NODE_VERSION: '20.17.0',
+frontend-1  |   HOSTNAME: '401fc3190463',
+frontend-1  |   YARN_VERSION: '1.22.22',
+frontend-1  |   npm_node_execpath: '/usr/local/bin/node',
+frontend-1  |   HOME: '/root',
+frontend-1  |   npm_package_json: '/app/frontend/package.json',
+frontend-1  |   npm_config_userconfig: '/root/.npmrc',
+frontend-1  |   npm_config_local_prefix: '/app',
+frontend-1  |   COLOR: '0',
+frontend-1  |   npm_config_prefix: '/usr/local',
+frontend-1  |   npm_config_npm_version: '10.8.2',
+frontend-1  |   npm_config_cache: '/root/.npm',
+frontend-1  |   npm_config_node_gyp: '/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js',
+frontend-1  |   PATH: '/app/frontend/node_modules/.bin:/app/node_modules/.bin:/node_modules/.bin:/usr/local/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+frontend-1  |   NODE: '/usr/local/bin/node',
+frontend-1  |   npm_package_name: 'frontend',
+frontend-1  |   npm_lifecycle_script: 'next start',
+frontend-1  |   npm_package_version: '0.1.0',
+frontend-1  |   npm_lifecycle_event: 'start',
+frontend-1  |   NEXT_PUBLIC_API_URL: 'http://localhost:5000/api',
+frontend-1  |   npm_config_globalconfig: '/usr/local/etc/npmrc',
+frontend-1  |   npm_config_init_module: '/root/.npm-init.js',
+frontend-1  |   PWD: '/app/frontend',
+frontend-1  |   npm_execpath: '/usr/local/lib/node_modules/npm/bin/npm-cli.js',
+frontend-1  |   npm_config_global_prefix: '/usr/local',
+frontend-1  |   npm_command: 'start',
+frontend-1  |   INIT_CWD: '/app/frontend',
+frontend-1  |   EDITOR: 'vi',
+frontend-1  |   NODE_ENV: 'production',
+frontend-1  |   NEXT_RUNTIME: 'nodejs',
+frontend-1  |   PORT: '3000',
+frontend-1  |   __NEXT_PRIVATE_ORIGIN: 'http://localhost:3000',
+frontend-1  |   npm_config_noproxy: ''
+frontend-1  | }
+frontend-1  |  ✓ Ready in 514ms
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:15.073+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"172.18.0.3:54322","uuid":{"uuid":{"$uuid":"f90318c4-465f-4150-b4c6-16079d8eb056"}},"connectionId":6,"connectionCount":6}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:18:15.075+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn6","msg":"client metadata","attr":{"remote":"172.18.0.3:54322","client":"conn6","negotiatedCompressors":[],"doc":{"driver":{"name":"nodejs|Mongoose","version":"6.9.0|8.7.0"},"platform":"Node.js v20.17.0, LE","os":{"name":"linux","architecture":"x64","version":"6.5.0-1025-azure","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:19:04.210+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727831944,"ts_usec":210480,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 13, snapshot max: 13 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:20:04.513+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727832004,"ts_usec":513665,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 14, snapshot max: 14 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:21:04.585+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727832064,"ts_usec":585296,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 15, snapshot max: 15 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:22:04.662+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727832124,"ts_usec":662120,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 16, snapshot max: 16 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:23:04.747+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727832184,"ts_usec":747371,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 21, snapshot max: 21 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:24:04.913+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727832244,"ts_usec":913550,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 23, snapshot max: 23 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:25:04.995+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727832304,"ts_usec":995286,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 24, snapshot max: 24 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:26:05.057+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727832365,"ts_usec":57348,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 25, snapshot max: 25 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:27:05.168+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727832425,"ts_usec":168282,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 26, snapshot max: 26 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:28:05.237+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727832485,"ts_usec":237301,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 27, snapshot max: 27 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:29:05.304+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727832545,"ts_usec":304013,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 28, snapshot max: 28 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:30:05.368+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727832605,"ts_usec":368170,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 29, snapshot max: 29 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:31:05.464+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727832665,"ts_usec":464099,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 30, snapshot max: 30 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:32:05.549+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727832725,"ts_usec":549683,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 31, snapshot max: 31 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:33:05.618+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727832785,"ts_usec":618747,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 32, snapshot max: 32 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:34:05.742+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727832845,"ts_usec":742852,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 33, snapshot max: 33 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:35:05.925+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727832905,"ts_usec":925206,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 34, snapshot max: 34 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:36:06.018+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727832966,"ts_usec":18937,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 35, snapshot max: 35 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:37:06.094+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727833026,"ts_usec":94523,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 36, snapshot max: 36 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:38:06.149+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727833086,"ts_usec":149943,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 37, snapshot max: 37 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:39:06.218+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727833146,"ts_usec":218326,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 38, snapshot max: 38 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:40:06.347+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727833206,"ts_usec":347323,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 39, snapshot max: 39 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:41:06.421+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727833266,"ts_usec":421922,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 40, snapshot max: 40 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:42:06.505+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727833326,"ts_usec":505769,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 41, snapshot max: 41 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:43:06.577+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727833386,"ts_usec":577833,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 42, snapshot max: 42 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:44:06.648+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727833446,"ts_usec":648367,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 43, snapshot max: 43 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:45:06.809+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727833506,"ts_usec":809633,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 44, snapshot max: 44 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:46:06.880+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727833566,"ts_usec":880509,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 45, snapshot max: 45 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:47:06.948+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727833626,"ts_usec":948612,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 46, snapshot max: 46 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:48:07.027+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727833687,"ts_usec":27755,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 47, snapshot max: 47 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:49:07.131+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727833747,"ts_usec":131044,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 48, snapshot max: 48 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:50:07.421+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727833807,"ts_usec":421287,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 49, snapshot max: 49 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:51:07.528+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727833867,"ts_usec":528724,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 50, snapshot max: 50 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:52:07.598+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727833927,"ts_usec":598925,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 51, snapshot max: 51 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:53:07.698+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727833987,"ts_usec":698581,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 54, snapshot max: 54 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:54:07.819+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727834047,"ts_usec":819138,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 55, snapshot max: 55 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:55:07.969+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727834107,"ts_usec":969904,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 56, snapshot max: 56 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:56:08.042+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727834168,"ts_usec":42450,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 57, snapshot max: 57 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:57:08.102+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727834228,"ts_usec":102739,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 58, snapshot max: 58 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:58:08.174+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727834288,"ts_usec":174179,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 59, snapshot max: 59 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T01:59:08.426+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727834348,"ts_usec":426879,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 60, snapshot max: 60 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T02:00:08.545+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727834408,"ts_usec":545398,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 61, snapshot max: 61 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T02:01:08.605+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727834468,"ts_usec":605690,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 62, snapshot max: 62 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T02:02:08.677+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727834528,"ts_usec":677916,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 63, snapshot max: 63 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T02:03:08.730+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727834588,"ts_usec":730149,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 64, snapshot max: 64 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T02:04:08.811+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727834648,"ts_usec":811166,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 65, snapshot max: 65 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T02:05:08.970+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727834708,"ts_usec":970318,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 66, snapshot max: 66 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T02:06:09.046+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727834769,"ts_usec":46655,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 67, snapshot max: 67 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T02:07:09.126+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727834829,"ts_usec":126459,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 68, snapshot max: 68 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T02:08:09.207+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727834889,"ts_usec":207165,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 69, snapshot max: 69 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T02:09:09.325+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727834949,"ts_usec":325413,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 70, snapshot max: 70 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T02:10:09.490+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727835009,"ts_usec":490621,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 71, snapshot max: 71 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T02:11:09.586+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727835069,"ts_usec":586496,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 72, snapshot max: 72 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T02:12:09.645+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727835129,"ts_usec":645902,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 73, snapshot max: 73 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T02:13:09.698+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727835189,"ts_usec":698075,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 74, snapshot max: 74 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T02:14:09.787+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727835249,"ts_usec":786976,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 75, snapshot max: 75 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T02:15:09.942+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727835309,"ts_usec":942608,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 76, snapshot max: 76 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T02:16:10.062+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727835370,"ts_usec":62800,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 77, snapshot max: 77 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T02:17:10.118+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727835430,"ts_usec":118686,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 78, snapshot max: 78 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T02:18:10.173+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727835490,"ts_usec":173220,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 79, snapshot max: 79 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T02:19:10.258+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727835550,"ts_usec":258003,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 80, snapshot max: 80 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T02:20:10.401+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727835610,"ts_usec":401352,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 81, snapshot max: 81 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T02:21:10.817+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727835670,"ts_usec":817138,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 82, snapshot max: 82 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T02:22:10.878+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727835730,"ts_usec":878236,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 83, snapshot max: 83 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T02:23:10.929+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727835790,"ts_usec":929333,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 84, snapshot max: 84 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T02:24:11.031+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727835851,"ts_usec":31032,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 85, snapshot max: 85 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+mongodb-1   | {"t":{"$date":"2024-10-02T02:25:11.161+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1727835911,"ts_usec":161768,"thread":"1:0x74d77c58b6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 86, snapshot max: 86 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1371"}}}
+Gracefully stopping... (press Ctrl+C again to force)
+ Container reimagined-couscous-frontend-1  Stopping
+ Container reimagined-couscous-frontend-1  Stopped
+ Container reimagined-couscous-backend-1  Stopping
+ Container reimagined-couscous-backend-1  Stopped
+ Container reimagined-couscous-mongodb-1  Stopping
+ Container reimagined-couscous-mongodb-1  Stopped
+canceled

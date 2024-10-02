@@ -1,25 +1,15 @@
+// frontend/src/app/request/[id]/page.tsx
 'use client';
 
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
+import Link from 'next/link';
 import { getPostById } from '@/app/services/postService';
-
-interface Post {
-  _id: string;
-  title: string;
-  description: string;
-  images: string[];
-  tags: string[];
-  organizationId: string;
-  itemsNeeded?: { item: string; quantity: number }[];
-  volunteersNeeded?: number;
-  eventDate?: string;
-  createdAt: string;
-}
+import { IPost, OrganizationPreview } from '@shared/types';
 
 const RequestPage = () => {
   const { id } = useParams();
-  const [post, setPost] = useState<Post | null>(null);
+  const [post, setPost] = useState<IPost | null>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   useEffect(() => {
@@ -39,8 +29,11 @@ const RequestPage = () => {
     return <div>Loading...</div>;
   }
 
+  const organization = post.organization as OrganizationPreview;
+
   return (
     <div className="container mx-auto px-4 py-8">
+      {/* Post Header Section */}
       <div className="mb-8">
         <div className="relative h-96 w-full mb-4">
           <img
@@ -65,18 +58,27 @@ const RequestPage = () => {
       <h1 className="text-3xl font-bold text-orange-800 mb-4">{post.title}</h1>
       <p className="text-lg text-gray-700 mb-6">{post.description}</p>
 
+      {/* Organization section */}
       <div className="bg-orange-100 p-4 rounded-lg mb-6">
         <h2 className="text-xl font-semibold text-orange-800 mb-2">Organization</h2>
         <div className="flex items-center">
           <img
-            src={`https://placehold.co/100x100?text=${encodeURIComponent('Org')}`}
-            alt="Organization"
-            className="w-12 h-12 rounded-full mr-4"
+            src={organization.profileImage || `https://placehold.co/100x100?text=${encodeURIComponent(organization.name)}`}
+            alt={organization.name}
+            className="w-16 h-16 rounded-full mr-4"
           />
-          <span className="text-lg text-orange-800">Organization Name</span>
+          <div>
+            <Link href={`/organization/${organization._id}`}>
+              <span className="text-lg text-orange-800 font-semibold hover:underline">
+                {organization.name}
+              </span>
+            </Link>
+            <p className="text-sm text-gray-600">{organization.description}</p>
+          </div>
         </div>
       </div>
 
+      {/* Items needed section */}
       {post.itemsNeeded && post.itemsNeeded.length > 0 && (
         <div className="mb-6">
           <h2 className="text-2xl font-semibold text-orange-800 mb-4">Items Needed</h2>

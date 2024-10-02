@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import postRoutes from './routes/postRoutes';
 import organizationRoutes from './routes/organizationRoutes';
+import profileRoutes from './routes/profilesRoutes';
 import seedData from './seedData';
 
 const app = express();
@@ -14,6 +15,7 @@ app.use(express.json());
 
 app.use('/api/posts', postRoutes);
 app.use('/api/organizations', organizationRoutes)
+app.use('/api/profiles/public', profileRoutes)
 
 mongoose.connect(process.env.MONGODB_URI as string)
   .then(() => {
@@ -21,6 +23,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
     return seedData();
   })
   .then(() => {
+    console.log("Seed data inserted");
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`);
     });

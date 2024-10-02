@@ -8,6 +8,9 @@ interface PostListProps {
 }
 
 const PostList: React.FC<PostListProps> = ({ posts, cardType }) => {
+  posts.map((post) => {
+    console.log(post);
+  });
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {posts.map((post) => (
@@ -18,9 +21,9 @@ const PostList: React.FC<PostListProps> = ({ posts, cardType }) => {
           <div className="p-4">
             <h2 className="text-xl font-semibold mb-2">{post.title}</h2>
             <p className="text-gray-600 mb-4">{post.description.substring(0, 100)}...</p>
-            <Link href={`/organization/${post.organizationId}`}>
+            <Link href={`/organization/${post.organization._id.toString()}`}>
               <span className="text-blue-500 hover:underline">
-                {post.organizationId.name}
+                {post.organization._id.toString()}
               </span>
             </Link>
             {cardType === 'explore' && (

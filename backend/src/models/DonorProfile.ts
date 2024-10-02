@@ -1,22 +1,6 @@
 // backend/src/models/DonorProfile.ts
 import mongoose, { Schema, Document } from 'mongoose';
-
-export interface IDonorProfile extends Document {
-  userId: mongoose.Types.ObjectId;
-  bio?: string;
-  interests: string[];
-  donationHistory: {
-    organizationId: mongoose.Types.ObjectId;
-    amount: number;
-    date: Date;
-  }[];
-  preferredCauses: string[];
-  volunteerHistory?: {
-    organizationId: mongoose.Types.ObjectId;
-    hours: number;
-    date: Date;
-  }[];
-}
+import { IDonorProfile } from '@shared/types';
 
 const DonorProfileSchema: Schema = new Schema({
   userId: { type: Schema.Types.ObjectId, ref: 'User', required: true, unique: true },

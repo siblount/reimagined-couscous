@@ -1,14 +1,6 @@
 // backend/src/models/User.ts
-import mongoose, { Schema, Document } from 'mongoose';
-
-export interface IUser extends Document {
-  username: string;
-  email: string;
-  password: string;
-  role: 'donor' | 'member' | 'admin' | 'owner';
-  organizationId?: mongoose.Types.ObjectId;
-  donorProfileId?: mongoose.Types.ObjectId;
-}
+import mongoose, { Schema } from 'mongoose';
+import { IUser } from '@shared/types';
 
 const UserSchema: Schema = new Schema({
   username: { type: String, required: true, unique: true },
@@ -17,6 +9,7 @@ const UserSchema: Schema = new Schema({
   role: { type: String, enum: ['donor', 'member', 'admin', 'owner'], default: 'donor' },
   organizationId: { type: Schema.Types.ObjectId, ref: 'Organization' },
   donorProfileId: { type: Schema.Types.ObjectId, ref: 'DonorProfile' },
+  profilePicture: { type: String, required: false }
 }, { timestamps: true });
 
 export default mongoose.model<IUser>('User', UserSchema);

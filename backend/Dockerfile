@@ -23,5 +23,7 @@ WORKDIR /app/backend
 RUN npm run build
 
 EXPOSE 5000
+RUN ls
+RUN ls -R ./dist
 
 CMD ["npm", "start"]

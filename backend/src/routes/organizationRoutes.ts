@@ -6,7 +6,6 @@ import {
   createOrganization, 
   updateOrganization, 
   deleteOrganization,
-  getPublicOrganizationProfile
 } from '../controllers/organizationController';
 
 const router = express.Router();
@@ -28,8 +27,5 @@ router.delete('/:id', deleteOrganization);
 
 // Get all organizations (without query parameters)
 router.get('/', getOrganizations);
-
-// Get public profile of an organization
-router.get('/:id/public-profile', getPublicOrganizationProfile);
 
 export default router;

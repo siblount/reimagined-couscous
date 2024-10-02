@@ -1,5 +1,6 @@
 // backend/src/controllers/organizationController.ts
 import { Request, Response } from 'express';
+import { Types } from 'mongoose';
 import Post from "../models/Post";
 import User from "../models/User";
 import Organization from '../models/Organization';
@@ -86,35 +87,3 @@ export const deleteOrganization = async (req: Request, res: Response): Promise<v
     res.status(500).json({ message: 'Error deleting organization', error: error instanceof Error ? error.message : 'Unknown error' });
   }
 };
-
-export const getPublicOrganizationProfile = async (req: Request, res: Response): Promise<void> => {
-    try {
-      const organization = await Organization.findById(req.params.id);
-      if (!organization) {
-        res.status(404).json({ message: 'Organization not found' });
-        return;
-      }
-  
-      // Fetch active posts
-      const activePosts = await Post.find({ 
-        organizationId: organization._id,
-        isActive: true 
-      }).sort({ createdAt: -1 }).limit(10);
-  
-      // Fetch team members
-      const teamMembers = await User.find({
-        _id: { $in: [...organization.adminIds, ...organization.memberIds] }
-      }).select('name profileImage role');
-  
-      const publicProfile = {
-        ...organization.toObject(),
-        activePosts,
-        teamMembers
-      };
-  
-      res.json(publicProfile);
-    } catch (error) {
-      console.error('Error fetching organization public profile:', error);
-      res.status(500).json({ message: 'Error fetching organization public profile', error: error instanceof Error ? error.message : 'Unknown error' });
-    }
-  };
