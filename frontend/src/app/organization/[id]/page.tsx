@@ -6,6 +6,7 @@ import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { fetchOrganizationPublicProfile } from '@/app/services/api';
 import { IOrganizationProfile, IMember, IPost } from '@shared/types';
+import LoadingSpinner from '@/app/components/LoadingSpinner';
 
 export default function OrganizationProfile() {
   const { id } = useParams();
@@ -30,7 +31,7 @@ export default function OrganizationProfile() {
   }, [id]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <LoadingSpinner/>
   }
 
   if (!organization) {

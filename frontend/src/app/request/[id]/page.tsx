@@ -6,6 +6,7 @@ import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { getPostById } from '@/app/services/postService';
 import { IPost, OrganizationPreview } from '@shared/types';
+import LoadingSpinner from '@/app/components/LoadingSpinner'
 
 const RequestPage = () => {
   const { id } = useParams();
@@ -26,7 +27,7 @@ const RequestPage = () => {
   }, [id]);
 
   if (!post) {
-    return <div>Loading...</div>;
+    return <LoadingSpinner/>;
   }
 
   const organization = post.organization as OrganizationPreview;
