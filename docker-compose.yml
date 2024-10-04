@@ -7,6 +7,7 @@ services:
       - "5000:5000"
     environment:
       - MONGODB_URI=mongodb://mongodb:27017/giveapp
+      - JWT_SECRET=${JWT_SECRET}
     volumes:
       - ./shared:/app/shared
     depends_on:

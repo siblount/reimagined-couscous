@@ -1,8 +1,13 @@
 // backend/src/models/User.ts
 import mongoose, { Schema } from 'mongoose';
 import { IUser } from '@shared/types';
+import bcrypt from 'bcrypt';
 
-const UserSchema: Schema = new Schema({
+interface IUserModel extends IUser {
+  comparePassword(candidatePassword: string): Promise<boolean>;
+}
+
+const UserSchema: Schema = new Schema<IUserModel>({
   username: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
@@ -12,4 +17,15 @@ const UserSchema: Schema = new Schema({
   profilePicture: { type: String, required: false }
 }, { timestamps: true });
 
-export default mongoose.model<IUser>('User', UserSchema);
+UserSchema.pre<IUserModel>('save', async function(next) {
+  if (this.isModified('password')) {
+    this.password = await bcrypt.hash(this.password, 10);
+  }
+  next();
+});
+
+UserSchema.methods.comparePassword = function(candidatePassword: string) {
+  return bcrypt.compare(candidatePassword, this.password);
+};
+
+export default mongoose.model<IUserModel>('User', UserSchema);

@@ -5,6 +5,7 @@ import cors from 'cors';
 import postRoutes from './routes/postRoutes';
 import organizationRoutes from './routes/organizationRoutes';
 import profileRoutes from './routes/profilesRoutes';
+import authRoutes from './routes/authRoutes';
 import seedData from './seedData';
 
 const app = express();
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use('/api/posts', postRoutes);
 app.use('/api/organizations', organizationRoutes)
 app.use('/api/profiles/public', profileRoutes)
+app.use('/api/auth', authRoutes);
 
 mongoose.connect(process.env.MONGODB_URI as string)
   .then(() => {

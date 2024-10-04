@@ -1,5 +1,6 @@
 // frontend/src/app/services/api.ts
 
+import axios from 'axios';
 import { IOrganizationProfile } from "@shared/types";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -11,3 +12,9 @@ export const fetchOrganizationPublicProfile = async (id: string): Promise<IOrgan
   }
   return response.json();
 };
+
+const api = axios.create({
+  baseURL: '/api',
+});
+
+export default api;
