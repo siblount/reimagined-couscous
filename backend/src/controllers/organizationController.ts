@@ -1,8 +1,5 @@
 // backend/src/controllers/organizationController.ts
 import { Request, Response } from 'express';
-import { Types } from 'mongoose';
-import Post from "../models/Post";
-import User from "../models/User";
 import Organization from '../models/Organization';
 
 export const getOrganizations = async (req: Request, res: Response): Promise<void> => {

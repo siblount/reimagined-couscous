@@ -1,10 +1,10 @@
 {
-    "name": "Giveaholic",
-    "short_name": "Giveaholic",
+    "name": "CommunityWatch",
+    "short_name": "CommunityWatch",
     "description": "Description of your app",
     "start_url": "/",
-    "display": "minimal-ui",
-    "background_color": "#ffffff",
+    "display": "standalone",
+    "background_color": "#f97316",
     "theme_color": "#f97316",
     "icons": [
       {
