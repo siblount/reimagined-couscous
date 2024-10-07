@@ -11,7 +11,7 @@ We use a Typescript-based technology stack, excluding database systems.
   - Docker
   - (Currently) MongoDB
     - Will replace to PostgreSQL
-  - Redis
+  - Nginx
 
 # Setup
 This repo uses a devcontainer setup. You should open this project either in:

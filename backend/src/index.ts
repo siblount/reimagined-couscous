@@ -1,6 +1,7 @@
 // backend/src/index.ts
 import express from 'express';
 import mongoose from 'mongoose';
+import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import postRoutes from './routes/postRoutes';
 import organizationRoutes from './routes/organizationRoutes';
@@ -9,9 +10,13 @@ import authRoutes from './routes/authRoutes';
 import seedData from './seedData';
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.BACKEND_PORT || 5000;
 
-app.use(cors());
+app.use(cookieParser());
+app.use(cors({
+  origin: process.env.PUBLIC_URL,
+  credentials: true,
+}));
 app.use(express.json());
 
 app.use('/api/posts', postRoutes);

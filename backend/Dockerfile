@@ -1,6 +1,9 @@
 # backend/Dockerfile
 FROM node:20
 
+# Set environment variables
+ENV BACKEND_PORT=5000
+
 WORKDIR /app
 
 # Copy root package.json and package-lock.json
@@ -23,7 +26,5 @@ WORKDIR /app/backend
 RUN npm run build
 
 EXPOSE 5000
-RUN ls
-RUN ls -R ./dist
 
 CMD ["npm", "start"]
