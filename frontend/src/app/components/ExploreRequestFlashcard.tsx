@@ -1,3 +1,4 @@
+// ExploreRequestFlashcard.tsx
 import React from 'react';
 import Link from 'next/link';
 
@@ -18,37 +19,36 @@ const ExploreRequestFlashcard: React.FC<{ post: Post }> = ({ post }) => {
     : `https://placehold.co/600x400?text=${encodeURIComponent(post.title)}`;
 
   return (
-    <Link href={`/request/${post._id}`} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-      <div className="p-4">
-        <h3 className="text-xl font-semibold text-orange-800 mb-2">{post.title}</h3>
-        <div className="relative h-48 w-full mb-2">
+    <Link href={`/request/${post._id}`} className="block">
+      <div className="bubble-effect overflow-hidden hover:orange-glow transition-shadow duration-300">
+        <div className="relative h-48 w-full">
           <img
             src={imageUrl}
             alt={post.title}
             className="w-full h-full object-cover"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
+          <h3 className="absolute bottom-2 left-2 text-xl font-semibold text-white text-shadow">{post.title}</h3>
         </div>
-        <p className="text-orange-600 mb-2 line-clamp-2">{post.description}</p>
-        <div className="flex flex-wrap gap-1 mb-2">
-          {post.tags.map((tag, index) => (
-            <span key={index} className="text-xs bg-orange-100 text-orange-800 px-2 py-1 rounded-full">
-              {tag}
-            </span>
-          ))}
+        <div className="p-4">
+          <p className="text-white mb-2 line-clamp-2">{post.description}</p>
+          <div className="flex flex-wrap gap-1 mb-2">
+            {post.tags.map((tag, index) => (
+              <span key={index} className="bg-orange-500 bg-opacity-50 text-white text-xs px-2 py-1 rounded-full">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div className="flex justify-between items-center text-sm text-white">
+            <span>{new Date(post.createdAt).toLocaleDateString()}</span>
+            {post.eventDate && (
+              <span>Event: {new Date(post.eventDate).toLocaleDateString()}</span>
+            )}
+            {post.volunteersNeeded && (
+              <span>Volunteers needed: {post.volunteersNeeded}</span>
+            )}
+          </div>
         </div>
-        <p className="text-xs text-gray-500 mb-1">
-          Posted on: {new Date(post.createdAt).toLocaleDateString()}
-        </p>
-        {post.eventDate && (
-          <p className="text-xs text-gray-600 mb-1">
-            Event Date: {new Date(post.eventDate).toLocaleDateString()}
-          </p>
-        )}
-        {post.volunteersNeeded && (
-          <p className="text-xs text-gray-600">
-            Volunteers needed: {post.volunteersNeeded}
-          </p>
-        )}
       </div>
     </Link>
   );

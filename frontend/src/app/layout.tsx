@@ -1,3 +1,4 @@
+// layout.tsx
 import BottomNav from '@/app/components/BottomNav'
 import LoadingSpinner from '@/app/components/LoadingSpinner';
 import Header from '@/app/components/Header'
@@ -10,7 +11,7 @@ import { AuthProvider } from './contexts/AuthContext';
 
 export const metadata: Metadata = {
   title: 'Giveaholic',
-  description: 'Description of your app',
+  description: 'Connecting nonprofits with donors',
   manifest: '/manifest.json',
   appleWebApp: {
     capable: true,
@@ -37,14 +38,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-orange-50 text-orange-900 overflow-hidden">
+      <body className="bg-[#1a1a1a] text-white min-h-screen">
         <AuthProvider>
-          <div id="splash-screen" className="fixed inset-0 z-50 flex items-center justify-center bg-orange-500 transition-opacity duration-500">
-            <h1 className="text-4xl font-bold text-white">GiveApp</h1>
+          <div id="splash-screen" className="fixed inset-0 z-50 flex items-center justify-center bg-[#1a1a1a] transition-opacity duration-500">
+            <h1 className="text-4xl font-bold text-orange-500 orange-glow">GiveApp</h1>
           </div>
           <div id="__next" className="opacity-0 transition-opacity duration-500">
-            <div className="flex flex-col h-screen">
-              <Header /> {/* Add the Header component here */}
+            <div className="flex flex-col min-h-screen">
+              <Header />
               <main className="flex-grow overflow-auto p-4 pb-20">
                 <Suspense fallback={<LoadingSpinner />}>
                   {children}

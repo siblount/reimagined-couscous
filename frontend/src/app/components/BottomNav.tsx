@@ -1,4 +1,4 @@
-// app/components/BottomNav.tsx
+// BottomNav.tsx
 'use client';
 
 import Link from 'next/link';
@@ -24,7 +24,7 @@ const BottomNav = () => {
   }, [pathname, memoizedNavItems]);
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-orange-500 border-t border-orange-600">
+    <nav className="fixed bottom-0 left-0 right-0 bubble-effect border-t border-orange-500 border-opacity-30">
       <div className="flex justify-around items-center h-16 relative">
         {memoizedNavItems.map((item) => (
           <Link 
@@ -32,8 +32,8 @@ const BottomNav = () => {
             key={item.href}
             className={`flex flex-col items-center justify-center w-full h-full z-10 ${
               pathname === item.href 
-                ? 'text-white' 
-                : 'text-orange-200 hover:text-white'
+                ? 'text-orange-500' 
+                : 'text-white hover:text-orange-400'
             }`}
           >
             <span className="text-2xl mb-1">{item.icon}</span>
@@ -41,7 +41,7 @@ const BottomNav = () => {
           </Link>
         ))}
         <div 
-          className="absolute bottom-0 h-1 bg-white rounded-full transition-all duration-300 ease-in-out"
+          className="absolute bottom-0 h-1 bg-orange-500 rounded-full transition-all duration-300 ease-in-out"
           style={{
             width: `${100 / memoizedNavItems.length}%`,
             left: `${(activeIndex * 100) / memoizedNavItems.length}%`,
