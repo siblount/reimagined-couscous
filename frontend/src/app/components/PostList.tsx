@@ -49,10 +49,12 @@ const PostList: React.FC<PostListProps> = ({ cardType, limit, searchQuery }) => 
 
   if (cardType === 'home') {
     return (
-      <div className="flex overflow-x-auto space-x-4 pb-4">
-        {posts.map((post) => (
-          <HomeRequestFlashcard key={post._id} post={post} />
-        ))}
+      <div className="overflow-x-auto">
+        <div className="flex space-x-4 pb-4">
+          {posts.map((post) => (
+            <HomeRequestFlashcard key={post._id} post={post} />
+          ))}
+        </div>
       </div>
     );
   }
