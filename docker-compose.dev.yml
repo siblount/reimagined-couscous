@@ -2,7 +2,7 @@ services:
   backend:
     build: 
       context: .
-      dockerfile: backend/Dockerfile
+      dockerfile: backend/Dockerfile.dev
     ports:
       - "5000:5000"
     environment:
@@ -10,14 +10,17 @@ services:
       - JWT_SECRET=${JWT_SECRET}
       - CSRF_SECRET=${CSRF_SECRET}
     volumes:
+      - ./backend:/app/backend
       - ./shared:/app/shared
+      - /app/backend/node_modules
     depends_on:
       - mongodb
+    command: npm run dev
 
   frontend:
     build: 
       context: .
-      dockerfile: frontend/Dockerfile
+      dockerfile: frontend/Dockerfile.dev
       args:
         - NEXT_PUBLIC_API_URL=/api
     ports:
@@ -25,7 +28,9 @@ services:
     environment:
       - NEXT_PUBLIC_API_URL=/api
     volumes:
+      - ./frontend:/app/frontend
       - ./shared:/app/shared
+      - /app/frontend/node_modules
     depends_on:
       - backend
 

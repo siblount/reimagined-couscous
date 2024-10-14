@@ -8,9 +8,10 @@ import organizationRoutes from './routes/organizationRoutes';
 import profileRoutes from './routes/profilesRoutes';
 import authRoutes from './routes/authRoutes';
 import seedData from './seedData';
+import config from './config';
 
 const app = express();
-const PORT = process.env.BACKEND_PORT || 5000;
+const PORT = config.PORT;
 
 app.use(cookieParser());
 app.use(cors({
@@ -24,7 +25,9 @@ app.use('/api/organizations', organizationRoutes)
 app.use('/api/profiles/public', profileRoutes)
 app.use('/api/auth', authRoutes);
 
-mongoose.connect(process.env.MONGODB_URI as string)
+console.log(config.MONGODB_URI);
+
+mongoose.connect(config.MONGODB_URI)
   .then(() => {
     console.log('Connected to MongoDB');
     return seedData();

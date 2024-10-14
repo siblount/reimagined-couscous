@@ -58,7 +58,7 @@ const PostList: React.FC<PostListProps> = ({ cardType, limit, searchQuery }) => 
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {posts.map((post) => (
         <ExploreRequestFlashcard key={post._id} post={post} />
       ))}

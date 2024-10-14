@@ -18,10 +18,6 @@ interface Config {
      */
     JWT_SECRET: string;
     /**
-     * The current node environment.
-     */
-    NODE_ENV: 'development' | 'production';
-    /**
      * The URL of the frontend application.
      */
 }
@@ -44,15 +40,21 @@ function getNumber(env: string) {
 }
 
 function init(): Config {
-    return {
-        PORT: getNumber('BACKEND_PORT'),
-        MONGODB_URI: getString('MONGODB_URI'),
-        CSRF_SECRET: getString('CSRF_SECRET'),
-        JWT_SECRET: getString('JWT_SECRET'),
-        NODE_ENV: getString('NODE_ENV', ['development', 'production']) as 'development' | 'production',
-        // FRONTEND_URL: getString('FRONTEND_URL'),
-        // Add other environment variables here
-    };
+    try {
+        return {
+            PORT: getNumber('BACKEND_PORT'),
+            MONGODB_URI: getString('MONGODB_URI'),
+            CSRF_SECRET: getString('CSRF_SECRET'),
+            JWT_SECRET: getString('JWT_SECRET'),
+            // FRONTEND_URL: getString('FRONTEND_URL'),
+            // Add other environment variables here
+        };
+    } catch (error) {
+        console.log("Envs found at config error: ");
+        console.log(process.env);
+        throw error;
+    }
+
 }
 
 const config: Config = init();

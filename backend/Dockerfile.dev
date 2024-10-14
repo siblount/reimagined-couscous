@@ -1,27 +1,19 @@
-# backend/Dockerfile
 FROM node:20
 
 WORKDIR /app
 
-# Copy root package.json and package-lock.json
-COPY package*.json ./
+ENV BACKEND_PORT=5000
 
-# Copy backend package.json
+COPY package*.json ./
 COPY backend/package*.json ./backend/
 
-# Install dependencies
 RUN npm install
 
-# Copy backend source code
 COPY backend ./backend
-
-# Copy shared folder
 COPY shared ./shared
 
-# Build the application
 WORKDIR /app/backend
-RUN npm run build
 
 EXPOSE 5000
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]

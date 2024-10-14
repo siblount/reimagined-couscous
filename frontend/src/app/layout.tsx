@@ -38,7 +38,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-[#1a1a1a] text-white min-h-screen">
+      <body className="text-white min-h-screen" style={{
+        background: 'linear-gradient(to top, #B45309 1%, #000000 80%)'
+      }}>
         <AuthProvider>
           <div id="splash-screen" className="fixed inset-0 z-50 flex items-center justify-center bg-[#1a1a1a] transition-opacity duration-500">
             <h1 className="text-4xl font-bold text-orange-500 orange-glow">GiveApp</h1>
