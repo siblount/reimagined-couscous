@@ -1,5 +1,6 @@
 // frontend/src/app/services/postService.ts
 import axios from 'axios';
+import api from './api';
 console.warn("Got env: ", process.env);
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -16,7 +17,7 @@ interface PostData {
 }
 
 export const getPosts = async (limit?: number, searchQuery?: string) => {
-  let url = `${API_URL}/posts/query`;
+  let url = '/posts/query';
   const params = new URLSearchParams();
 
   if (limit) {
@@ -31,7 +32,7 @@ export const getPosts = async (limit?: number, searchQuery?: string) => {
     url += `?${params.toString()}`;
   }
 
-  const response = await axios.get(url);
+  const response = await api.get(url);
   const posts = response.data;
 
   // Shuffle the posts array

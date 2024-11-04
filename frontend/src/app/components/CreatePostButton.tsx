@@ -16,7 +16,12 @@ const CreatePostButton = () => {
   }
 
   return (
-    <Link href="/create" className="fixed right-4 bottom-20 bg-orange-500 text-white rounded-full p-4 shadow-lg">
+    <Link 
+      href="/create" 
+      className="fixed right-4 bottom-20 backdrop-blur-sm bg-glass-medium 
+                 text-white rounded-full p-4 shadow-lg border border-outline-default
+                 hover:bg-glass-heavy transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+    >
       <span className="text-2xl">➕</span>
     </Link>
   );

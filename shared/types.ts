@@ -50,6 +50,13 @@ export interface IPost extends Document {
   eventDate?: Date;
   createdAt: Date;
   updatedAt: Date;
+  theme?: IPostTheme;
+}
+
+export interface IPostTheme {
+  borderFrom: string;
+  borderTo: string;
+  glowColor: string;
 }
 
 export interface IOrganizationProfile extends IOrganization {
@@ -91,4 +98,15 @@ export interface IDonorProfile extends Document {
     hours: number;
     date: Date;
   }[];
+}
+
+export interface ThemeSettings {
+  backgroundFrom: string;
+  backgroundTo: string;
+  allowOverride: boolean;
+  direction: string;
+}
+
+export interface UserSettings {
+  theme: ThemeSettings;
 }

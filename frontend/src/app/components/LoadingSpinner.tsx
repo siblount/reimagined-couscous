@@ -1,8 +1,13 @@
 // app/components/LoadingSpinner.tsx
 export default function LoadingSpinner() {
     return (
-        <div className="fixed inset-0 flex justify-center items-center bg-orange-50">
-            <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-orange-500"></div>
+      <div className="fixed inset-0 flex justify-center items-center backdrop-blur-xl bg-glass-medium">
+        <div className="relative">
+          <div className="absolute -inset-4 bg-gradient-to-r from-purple-500 to-pink-500 
+                         rounded-full blur animate-spin" />
+          <div className="relative h-16 w-16 rounded-full backdrop-blur-xl bg-glass-heavy 
+                         border-2 border-outline-default animate-pulse" />
         </div>
+      </div>
     );
-}
+  }
