@@ -30,7 +30,7 @@ services:
       - backend
 
   mongodb:
-    image: mongo:latest
+    image: mongo:4.0
     ports:
       - "${MONGODB_PORT:-27017}:27017"
     volumes:

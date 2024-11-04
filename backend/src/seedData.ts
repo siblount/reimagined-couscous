@@ -139,6 +139,45 @@ const seedData = async () => {
       ],
       volunteersNeeded: 15,
       eventDate: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000) // 14 days from now
+    },
+    {
+      title: "NC A&T Foodshelter",
+      description: "Help us collect non-perishable food items for our local food shelter.",
+      images: [`https://placehold.co/600x400?text=${encodeURIComponent("NC A&T Foodshelter")}`],
+      tags: ["Food Drive", "Humanitarian", "Donation"],
+      organization: createdOrganizations[1]._id, // Changed from organizationId to organization
+      itemsNeeded: [
+        { item: "Canned goods", quantity: 200 },
+        { item: "Rice", quantity: 50 }
+      ],
+      volunteersNeeded: 15,
+      eventDate: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000) // 14 days from now
+    },
+    {
+      title: "Jugars vs Rockets - Little League",
+      description: "Help us with our little league for tonight's game for the Jugars vs Rockets.",
+      images: [`https://placehold.co/600x400?text=${encodeURIComponent("Jugars vs Rockets - Little League")}`],
+      tags: ["Sports", "Recreational"],
+      organization: createdOrganizations[1]._id, // Changed from organizationId to organization
+      itemsNeeded: [
+        { item: "Canned goods", quantity: 200 },
+        { item: "Rice", quantity: 50 }
+      ],
+      volunteersNeeded: 35,
+      eventDate: new Date(Date.now() + 16 * 24 * 60 * 60 * 1000) // 14 days from now
+    },
+    {
+      title: "Daily Bread Sundays",
+      description: "Help us serve our kind on Sunday. Join us for our daily bread event!",
+      images: [`https://placehold.co/600x400?text=${encodeURIComponent("Daily Bread Sundays")}`],
+      tags: ["Religion", "Food", "Community"],
+      organization: createdOrganizations[0]._id, // Changed from organizationId to organization
+      itemsNeeded: [
+        { item: "Canned goods", quantity: 200 },
+        { item: "Rice", quantity: 50 }
+      ],
+      volunteersNeeded: 35,
+      eventDate: new Date(Date.now() + 6 * 24 * 60 * 60 * 1000) // 14 days from now
     }
   ];
 

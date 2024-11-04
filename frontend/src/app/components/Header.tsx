@@ -8,10 +8,12 @@ const Header: React.FC = () => {
   const { user, logout } = useAuth();
 
   return (
-    <header className="bg-orange-500 text-white p-4">
-      <div className="container mx-auto flex justify-between items-center">
+    <header className="backdrop-blur-md bg-glass-medium border-b border-outline-default">
+      <div className="container mx-auto flex justify-between items-center p-4">
         <Link href="/">
-          <span className="text-2xl font-bold cursor-pointer">GiveApp</span>
+          <span className="text-2xl font-bold cursor-pointer hover:text-white/80 transition-colors">
+            GiveApp
+          </span>
         </Link>
         <nav>
           {user ? (
@@ -21,12 +23,15 @@ const Header: React.FC = () => {
                 <img
                   src={user.profilePicture}
                   alt="Profile"
-                  className="w-8 h-8 rounded-full"
+                  className="w-8 h-8 rounded-full border border-outline-default"
                 />
               )}
               <button
                 onClick={logout}
-                className="bg-orange-600 px-4 py-2 rounded hover:bg-orange-700 transition-colors"
+                className="backdrop-blur-xl bg-glass-light px-4 py-2 rounded-lg 
+                border border-outline-default hover:bg-glass-heavy 
+                transition-all duration-300 hover:shadow-glass-hover
+                shadow-glass"
               >
                 Logout
               </button>
@@ -34,12 +39,18 @@ const Header: React.FC = () => {
           ) : (
             <div className="space-x-4">
               <Link href="/login">
-                <span className="bg-orange-600 px-4 py-2 rounded hover:bg-orange-700 transition-colors cursor-pointer">
+                <span className="backdrop-blur-sm bg-glass-light px-4 py-2 rounded-lg 
+                              border border-outline-default hover:bg-glass-heavy 
+                              transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]
+                              cursor-pointer">
                   Login
                 </span>
               </Link>
               <Link href="/register">
-                <span className="bg-orange-600 px-4 py-2 rounded hover:bg-orange-700 transition-colors cursor-pointer">
+                <span className="backdrop-blur-sm bg-glass-light px-4 py-2 rounded-lg 
+                              border border-outline-default hover:bg-glass-heavy 
+                              transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]
+                              cursor-pointer">
                   Register
                 </span>
               </Link>
@@ -50,5 +61,4 @@ const Header: React.FC = () => {
     </header>
   );
 };
-
 export default Header;

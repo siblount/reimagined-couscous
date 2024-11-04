@@ -5,18 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { getPosts } from '../services/postService';
 import HomeRequestFlashcard from './HomeRequestFlashcard';
 import ExploreRequestFlashcard from './ExploreRequestFlashcard';
-
-interface Post {
-  _id: string;
-  title: string;
-  description: string;
-  organizationId: string;
-  createdAt: string;
-  tags: string[];
-  eventDate?: string;
-  volunteersNeeded?: number;
-  images?: string[]; // Add this line
-}
+import { IPost } from '@shared/types';
 
 interface PostListProps {
   cardType: 'home' | 'explore';
@@ -25,7 +14,7 @@ interface PostListProps {
 }
 
 const PostList: React.FC<PostListProps> = ({ cardType, limit, searchQuery }) => {
-  const [posts, setPosts] = useState<Post[]>([]);
+  const [posts, setPosts] = useState<IPost[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -50,8 +39,8 @@ const PostList: React.FC<PostListProps> = ({ cardType, limit, searchQuery }) => 
   if (cardType === 'home') {
     return (
       <div className="flex overflow-x-auto space-x-4 pb-4">
-        {posts.map((post) => (
-          <HomeRequestFlashcard key={post._id} post={post} />
+        {posts.map((post, index) => (
+          <HomeRequestFlashcard key={post._id} post={post} index={index} />
         ))}
       </div>
     );
